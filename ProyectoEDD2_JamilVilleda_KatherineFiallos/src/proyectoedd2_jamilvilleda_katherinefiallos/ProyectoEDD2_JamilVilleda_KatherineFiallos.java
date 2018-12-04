@@ -9,13 +9,18 @@ package proyectoedd2_jamilvilleda_katherinefiallos;
  *
  * @author Jamil
  */
+import java.util.*;
 public class ProyectoEDD2_JamilVilleda_KatherineFiallos {
 
     /**
      * @param args the command line arguments
      */
+    static Scanner sc = new Scanner(System.in);
+    
     public static void main(String[] args) {
-        // TODO code application logic here
+      
+        
+        
     }
     
 }

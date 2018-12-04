@@ -16,6 +16,7 @@ public class Visualizacion extends javax.swing.JFrame {
      */
     public Visualizacion() {
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     /**
@@ -27,21 +28,190 @@ public class Visualizacion extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        jd_registrarse = new javax.swing.JDialog();
+        jl_icon = new javax.swing.JLabel();
+        jl_nombre = new javax.swing.JLabel();
+        jl_registrarUsuario = new javax.swing.JLabel();
+        tf_nombre = new javax.swing.JTextField();
+        jl_usuario = new javax.swing.JLabel();
+        tf_nombreMadre = new javax.swing.JTextField();
+        tf_id = new javax.swing.JTextField();
+        jl_lugarNacimiento = new javax.swing.JLabel();
+        jl_nombrePadre = new javax.swing.JLabel();
+        jl_nombreMadre = new javax.swing.JLabel();
+        tf_lugarNacimiento = new javax.swing.JTextField();
+        tf_nombrePadre = new javax.swing.JTextField();
+        bt_registrarse = new javax.swing.JButton();
+        bt_regresarMenu = new javax.swing.JButton();
+        jl_fondo1 = new javax.swing.JLabel();
+        jd_inicioSesion = new javax.swing.JDialog();
+        jl_icon2 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        jTextField1 = new javax.swing.JTextField();
+        jButton1 = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        jButton2 = new javax.swing.JButton();
+        jl_fondo2 = new javax.swing.JLabel();
+        jl_titulo = new javax.swing.JLabel();
+        jb_registrarse = new javax.swing.JButton();
+        jb_inicioSesion = new javax.swing.JButton();
+        jb_salir = new javax.swing.JButton();
+        jl_fondo = new javax.swing.JLabel();
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
-        );
+        jd_registrarse.setUndecorated(true);
+        jd_registrarse.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jl_icon.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
+        jl_icon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyectoedd2_jamilvilleda_katherinefiallos/register.jpg"))); // NOI18N
+        jd_registrarse.getContentPane().add(jl_icon, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 40, 200, 190));
+
+        jl_nombre.setFont(new java.awt.Font("Lucida Grande", 1, 13)); // NOI18N
+        jl_nombre.setText("Nombre y Apellido: ");
+        jd_registrarse.getContentPane().add(jl_nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 280, 140, 40));
+
+        jl_registrarUsuario.setFont(new java.awt.Font("Lucida Grande", 1, 24)); // NOI18N
+        jl_registrarUsuario.setText("Registrar Usuario");
+        jd_registrarse.getContentPane().add(jl_registrarUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 230, -1, -1));
+        jd_registrarse.getContentPane().add(tf_nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 284, 200, -1));
+
+        jl_usuario.setFont(new java.awt.Font("Lucida Grande", 1, 13)); // NOI18N
+        jl_usuario.setText("Numero de Identidad: ");
+        jd_registrarse.getContentPane().add(jl_usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 330, 160, 30));
+        jd_registrarse.getContentPane().add(tf_nombreMadre, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 450, 200, -1));
+        jd_registrarse.getContentPane().add(tf_id, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 330, 200, -1));
+
+        jl_lugarNacimiento.setFont(new java.awt.Font("Lucida Grande", 1, 13)); // NOI18N
+        jl_lugarNacimiento.setText("Lugar de Nacimiento: ");
+        jd_registrarse.getContentPane().add(jl_lugarNacimiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 370, -1, 30));
+
+        jl_nombrePadre.setFont(new java.awt.Font("Lucida Grande", 1, 13)); // NOI18N
+        jl_nombrePadre.setText("Nombre del Padre: ");
+        jd_registrarse.getContentPane().add(jl_nombrePadre, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 410, -1, 30));
+
+        jl_nombreMadre.setFont(new java.awt.Font("Lucida Grande", 1, 13)); // NOI18N
+        jl_nombreMadre.setText("Nombre de la Madre: ");
+        jd_registrarse.getContentPane().add(jl_nombreMadre, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 450, 150, 30));
+        jd_registrarse.getContentPane().add(tf_lugarNacimiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 370, 200, -1));
+        jd_registrarse.getContentPane().add(tf_nombrePadre, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 410, 200, -1));
+
+        bt_registrarse.setText("Registrarse");
+        jd_registrarse.getContentPane().add(bt_registrarse, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 500, -1, -1));
+
+        bt_regresarMenu.setText("Regresar al Menu");
+        bt_regresarMenu.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                bt_regresarMenuMouseClicked(evt);
+            }
+        });
+        jd_registrarse.getContentPane().add(bt_regresarMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 10, -1, -1));
+
+        jl_fondo1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyectoedd2_jamilvilleda_katherinefiallos/white2.jpg"))); // NOI18N
+        jd_registrarse.getContentPane().add(jl_fondo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 450, 550));
+
+        jd_inicioSesion.setUndecorated(true);
+        jd_inicioSesion.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jl_icon2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyectoedd2_jamilvilleda_katherinefiallos/login2.png"))); // NOI18N
+        jd_inicioSesion.getContentPane().add(jl_icon2, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 50, -1, -1));
+
+        jLabel1.setFont(new java.awt.Font("Lucida Grande", 1, 13)); // NOI18N
+        jLabel1.setText("Numero de Identidad:");
+        jd_inicioSesion.getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 330, 150, 20));
+        jd_inicioSesion.getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 330, 200, 20));
+
+        jButton1.setText("Ingresar al Sistema");
+        jd_inicioSesion.getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 410, -1, -1));
+
+        jLabel2.setFont(new java.awt.Font("Lucida Grande", 1, 24)); // NOI18N
+        jLabel2.setText("Login");
+        jd_inicioSesion.getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 260, -1, -1));
+
+        jButton2.setText("Regresar al Menu");
+        jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton2MouseClicked(evt);
+            }
+        });
+        jd_inicioSesion.getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 10, -1, -1));
+
+        jl_fondo2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyectoedd2_jamilvilleda_katherinefiallos/white2.jpg"))); // NOI18N
+        jd_inicioSesion.getContentPane().add(jl_fondo2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 410, 490));
+
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jl_titulo.setFont(new java.awt.Font("Sinhala Sangam MN", 1, 24)); // NOI18N
+        jl_titulo.setText("Registro Nacional de las Personas");
+        getContentPane().add(jl_titulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 30, -1, -1));
+
+        jb_registrarse.setText("Registrarse");
+        jb_registrarse.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jb_registrarseMouseClicked(evt);
+            }
+        });
+        getContentPane().add(jb_registrarse, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 310, -1, 30));
+
+        jb_inicioSesion.setText("Iniciar Sesion");
+        jb_inicioSesion.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jb_inicioSesionMouseClicked(evt);
+            }
+        });
+        getContentPane().add(jb_inicioSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 310, -1, -1));
+
+        jb_salir.setBackground(new java.awt.Color(204, 0, 0));
+        jb_salir.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
+        jb_salir.setText("X");
+        jb_salir.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jb_salirMouseClicked(evt);
+            }
+        });
+        getContentPane().add(jb_salir, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, -1, 50, 30));
+
+        jl_fondo.setIcon(new javax.swing.ImageIcon("/Users/latribunapyrsa/Pictures/RNP.jpg")); // NOI18N
+        getContentPane().add(jl_fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jb_salirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_salirMouseClicked
+
+        System.exit(0);
+
+    }//GEN-LAST:event_jb_salirMouseClicked
+
+    private void jb_registrarseMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_registrarseMouseClicked
+        
+        jd_registrarse.setLocationRelativeTo(this);
+        jd_registrarse.setModal(true);
+        jd_registrarse.pack();
+        jd_registrarse.setVisible(true);
+       
+    }//GEN-LAST:event_jb_registrarseMouseClicked
+
+    private void bt_regresarMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bt_regresarMenuMouseClicked
+        jd_registrarse.dispose();
+        this.setVisible(true);
+    }//GEN-LAST:event_bt_regresarMenuMouseClicked
+
+    private void jb_inicioSesionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_inicioSesionMouseClicked
+        
+        jd_inicioSesion.setLocationRelativeTo(this);
+        jd_inicioSesion.setModal(true);
+        jd_inicioSesion.pack();
+        jd_inicioSesion.setVisible(true);
+
+    }//GEN-LAST:event_jb_inicioSesionMouseClicked
+
+    private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
+
+        jd_inicioSesion.dispose();
+        this.setVisible(true);
+
+    }//GEN-LAST:event_jButton2MouseClicked
 
     /**
      * @param args the command line arguments
@@ -79,5 +249,34 @@ public class Visualizacion extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton bt_registrarse;
+    private javax.swing.JButton bt_regresarMenu;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JTextField jTextField1;
+    private javax.swing.JButton jb_inicioSesion;
+    private javax.swing.JButton jb_registrarse;
+    private javax.swing.JButton jb_salir;
+    private javax.swing.JDialog jd_inicioSesion;
+    private javax.swing.JDialog jd_registrarse;
+    private javax.swing.JLabel jl_fondo;
+    private javax.swing.JLabel jl_fondo1;
+    private javax.swing.JLabel jl_fondo2;
+    private javax.swing.JLabel jl_icon;
+    private javax.swing.JLabel jl_icon2;
+    private javax.swing.JLabel jl_lugarNacimiento;
+    private javax.swing.JLabel jl_nombre;
+    private javax.swing.JLabel jl_nombreMadre;
+    private javax.swing.JLabel jl_nombrePadre;
+    private javax.swing.JLabel jl_registrarUsuario;
+    private javax.swing.JLabel jl_titulo;
+    private javax.swing.JLabel jl_usuario;
+    private javax.swing.JTextField tf_id;
+    private javax.swing.JTextField tf_lugarNacimiento;
+    private javax.swing.JTextField tf_nombre;
+    private javax.swing.JTextField tf_nombreMadre;
+    private javax.swing.JTextField tf_nombrePadre;
     // End of variables declaration//GEN-END:variables
 }
