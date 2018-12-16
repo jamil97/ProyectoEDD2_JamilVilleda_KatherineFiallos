@@ -17,6 +17,7 @@ public class Visualizacion extends javax.swing.JFrame {
     public Visualizacion() {
         initComponents();
         this.setLocationRelativeTo(null);
+        jd_registrarse.setLocationRelativeTo(this);
     }
 
     /**
@@ -95,7 +96,12 @@ public class Visualizacion extends javax.swing.JFrame {
         jd_registrarse.getContentPane().add(tf_nombrePadre, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 410, 200, -1));
 
         bt_registrarse.setText("Registrarse");
-        jd_registrarse.getContentPane().add(bt_registrarse, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 500, -1, -1));
+        bt_registrarse.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                bt_registrarseMouseClicked(evt);
+            }
+        });
+        jd_registrarse.getContentPane().add(bt_registrarse, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 500, -1, 30));
 
         bt_regresarMenu.setText("Regresar al Menu");
         bt_regresarMenu.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -116,15 +122,15 @@ public class Visualizacion extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("Lucida Grande", 1, 13)); // NOI18N
         jLabel1.setText("Numero de Identidad:");
-        jd_inicioSesion.getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 330, 150, 20));
-        jd_inicioSesion.getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 330, 200, 20));
+        jd_inicioSesion.getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 330, 150, 30));
+        jd_inicioSesion.getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 330, 200, 30));
 
         jButton1.setText("Ingresar al Sistema");
         jd_inicioSesion.getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 410, -1, -1));
 
         jLabel2.setFont(new java.awt.Font("Lucida Grande", 1, 24)); // NOI18N
         jLabel2.setText("Login");
-        jd_inicioSesion.getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 260, -1, -1));
+        jd_inicioSesion.getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 260, -1, -1));
 
         jButton2.setText("Regresar al Menu");
         jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -132,7 +138,7 @@ public class Visualizacion extends javax.swing.JFrame {
                 jButton2MouseClicked(evt);
             }
         });
-        jd_inicioSesion.getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 10, -1, -1));
+        jd_inicioSesion.getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 10, -1, -1));
 
         jl_fondo2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyectoedd2_jamilvilleda_katherinefiallos/white2.jpg"))); // NOI18N
         jd_inicioSesion.getContentPane().add(jl_fondo2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 410, 490));
@@ -212,6 +218,13 @@ public class Visualizacion extends javax.swing.JFrame {
         this.setVisible(true);
 
     }//GEN-LAST:event_jButton2MouseClicked
+
+    private void bt_registrarseMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bt_registrarseMouseClicked
+        
+        
+        
+        
+    }//GEN-LAST:event_bt_registrarseMouseClicked
 
     /**
      * @param args the command line arguments
