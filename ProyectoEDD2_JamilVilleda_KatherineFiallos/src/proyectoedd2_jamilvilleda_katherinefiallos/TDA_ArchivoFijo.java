@@ -6,7 +6,10 @@
 package proyectoedd2_jamilvilleda_katherinefiallos;
 
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.ObjectInputStream;
 import java.io.RandomAccessFile;
 import java.util.LinkedList;
 import javax.swing.table.DefaultTableModel;
@@ -226,6 +229,23 @@ public class TDA_ArchivoFijo {
         } catch (Exception e) {
         }
         return model;
+    }
+    public boolean cargarArbol(){
+        FileInputStream inFile;
+        try {
+            inFile=new FileInputStream("Arbol.b");
+            ObjectInputStream inputObject=new ObjectInputStream(inFile);
+            Object objeto=inputObject.readObject();
+            if(objeto instanceof BTree){
+                arbol=(BTree)objeto;
+                return true;
+            }
+        } catch (FileNotFoundException ex) {
+        }catch(IOException| ClassNotFoundException ex){
+            
+        }
+        return false;
+        
     }
     
     
