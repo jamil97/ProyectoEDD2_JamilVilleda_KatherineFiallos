@@ -21,14 +21,14 @@ public class BTree implements Serializable {
         root.isLeaf = true;
         root.cantNodos = 0;
         root.key[0] = new Index(-1, 0);
-
+        //Empezamos el arbol desde cero con solo la raiz de nodo.
     }
 
     public void insert(Index k) {
-        Node r = root;
-        if (r.cantNodos == 3) {
+        Node r = root; 
+        if (r.cantNodos == 3) { //Si se llena empieza la jerarquia
             Node s = new Node();
-            root = s;
+            root = s;  
             s.cantNodos = 0;
             s.isLeaf = false;
             s.child[0] = r;
@@ -41,6 +41,7 @@ public class BTree implements Serializable {
 
     private void insert(Node node, Index value) {
         int i = node.cantNodos;
+        
         if (node.isLeaf) {
             while (i >= 1 && value.getId() < node.key[i - 1].getId()) {
                 node.key[i] = node.key[i - 1];
@@ -48,6 +49,7 @@ public class BTree implements Serializable {
             }
             node.key[i] = value;
             node.cantNodos++;
+            
         } else {
             while (i >= i && value.getId() < node.key[i - 1].getId()) {
                 i--;
@@ -59,7 +61,9 @@ public class BTree implements Serializable {
                     i++;
                 }
             }
+            
             insert(node.child[i - 1], value);
+            
         }
     }
 
