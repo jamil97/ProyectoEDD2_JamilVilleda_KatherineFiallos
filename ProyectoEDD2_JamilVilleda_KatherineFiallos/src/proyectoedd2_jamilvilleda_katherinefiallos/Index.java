@@ -13,7 +13,7 @@ import java.io.Serializable;
 public class Index implements Serializable{
     
    private int Id;
-   private int rp;
+   private int rp; //Relative Position
    
    public Index(int Id, int rp){
        
