@@ -7,8 +7,8 @@ package proyectoedd2_jamilvilleda_katherinefiallos;
 
 /**
  *
- * @author Jamil
+ * @author KATHERINE
  */
-public class Registro {
+public class Personas {
     
 }

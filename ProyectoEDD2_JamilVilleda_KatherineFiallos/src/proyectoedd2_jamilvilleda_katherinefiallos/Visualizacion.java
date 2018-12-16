@@ -45,19 +45,17 @@ public class Visualizacion extends javax.swing.JFrame {
         bt_registrarse = new javax.swing.JButton();
         bt_regresarMenu = new javax.swing.JButton();
         jl_fondo1 = new javax.swing.JLabel();
-        jd_inicioSesion = new javax.swing.JDialog();
-        jl_icon2 = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
-        jButton2 = new javax.swing.JButton();
-        jl_fondo2 = new javax.swing.JLabel();
+        jButton3 = new javax.swing.JButton();
+        eliminar = new javax.swing.JDialog();
+        buscar = new javax.swing.JDialog();
+        listar = new javax.swing.JDialog();
         jl_titulo = new javax.swing.JLabel();
         jb_registrarse = new javax.swing.JButton();
-        jb_inicioSesion = new javax.swing.JButton();
         jb_salir = new javax.swing.JButton();
         jl_fondo = new javax.swing.JLabel();
+        jd_eliminar = new javax.swing.JButton();
+        jd_buscar = new javax.swing.JButton();
+        jd_listar = new javax.swing.JButton();
 
         jd_registrarse.setUndecorated(true);
         jd_registrarse.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -109,11 +107,12 @@ public class Visualizacion extends javax.swing.JFrame {
                 bt_regresarMenuMouseClicked(evt);
             }
         });
-        jd_registrarse.getContentPane().add(bt_regresarMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 10, -1, -1));
+        jd_registrarse.getContentPane().add(bt_regresarMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 20, -1, -1));
 
         jl_fondo1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyectoedd2_jamilvilleda_katherinefiallos/white2.jpg"))); // NOI18N
         jd_registrarse.getContentPane().add(jl_fondo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 450, 550));
 
+<<<<<<< HEAD
         jd_inicioSesion.setUndecorated(true);
         jd_inicioSesion.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -142,6 +141,9 @@ public class Visualizacion extends javax.swing.JFrame {
 
         jl_fondo2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyectoedd2_jamilvilleda_katherinefiallos/white2.jpg"))); // NOI18N
         jd_inicioSesion.getContentPane().add(jl_fondo2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 410, 490));
+=======
+        jButton3.setText("jButton3");
+>>>>>>> af7b4be768096c41a699db897f52a23f97fe1f12
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -149,7 +151,7 @@ public class Visualizacion extends javax.swing.JFrame {
 
         jl_titulo.setFont(new java.awt.Font("Sinhala Sangam MN", 1, 24)); // NOI18N
         jl_titulo.setText("Registro Nacional de las Personas");
-        getContentPane().add(jl_titulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 30, -1, -1));
+        getContentPane().add(jl_titulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 40, -1, -1));
 
         jb_registrarse.setText("Registrarse");
         jb_registrarse.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -157,15 +159,7 @@ public class Visualizacion extends javax.swing.JFrame {
                 jb_registrarseMouseClicked(evt);
             }
         });
-        getContentPane().add(jb_registrarse, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 310, -1, 30));
-
-        jb_inicioSesion.setText("Iniciar Sesion");
-        jb_inicioSesion.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jb_inicioSesionMouseClicked(evt);
-            }
-        });
-        getContentPane().add(jb_inicioSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 310, -1, -1));
+        getContentPane().add(jb_registrarse, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 100, 120, 30));
 
         jb_salir.setBackground(new java.awt.Color(204, 0, 0));
         jb_salir.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
@@ -175,10 +169,17 @@ public class Visualizacion extends javax.swing.JFrame {
                 jb_salirMouseClicked(evt);
             }
         });
-        getContentPane().add(jb_salir, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, -1, 50, 30));
-
-        jl_fondo.setIcon(new javax.swing.ImageIcon("/Users/latribunapyrsa/Pictures/RNP.jpg")); // NOI18N
+        getContentPane().add(jb_salir, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 0, 50, 30));
         getContentPane().add(jl_fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+
+        jd_eliminar.setText("Eliminar");
+        getContentPane().add(jd_eliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 160, 120, -1));
+
+        jd_buscar.setText("Buscar");
+        getContentPane().add(jd_buscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 220, 120, 30));
+
+        jd_listar.setText("Listar");
+        getContentPane().add(jd_listar, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 290, 120, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -203,6 +204,7 @@ public class Visualizacion extends javax.swing.JFrame {
         this.setVisible(true);
     }//GEN-LAST:event_bt_regresarMenuMouseClicked
 
+<<<<<<< HEAD
     private void jb_inicioSesionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_inicioSesionMouseClicked
         
         jd_inicioSesion.setLocationRelativeTo(this);
@@ -226,6 +228,8 @@ public class Visualizacion extends javax.swing.JFrame {
         
     }//GEN-LAST:event_bt_registrarseMouseClicked
 
+=======
+>>>>>>> af7b4be768096c41a699db897f52a23f97fe1f12
     /**
      * @param args the command line arguments
      */
@@ -264,21 +268,18 @@ public class Visualizacion extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton bt_registrarse;
     private javax.swing.JButton bt_regresarMenu;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JButton jb_inicioSesion;
+    private javax.swing.JDialog buscar;
+    private javax.swing.JDialog eliminar;
+    private javax.swing.JButton jButton3;
     private javax.swing.JButton jb_registrarse;
     private javax.swing.JButton jb_salir;
-    private javax.swing.JDialog jd_inicioSesion;
+    private javax.swing.JButton jd_buscar;
+    private javax.swing.JButton jd_eliminar;
+    private javax.swing.JButton jd_listar;
     private javax.swing.JDialog jd_registrarse;
     private javax.swing.JLabel jl_fondo;
     private javax.swing.JLabel jl_fondo1;
-    private javax.swing.JLabel jl_fondo2;
     private javax.swing.JLabel jl_icon;
-    private javax.swing.JLabel jl_icon2;
     private javax.swing.JLabel jl_lugarNacimiento;
     private javax.swing.JLabel jl_nombre;
     private javax.swing.JLabel jl_nombreMadre;
@@ -286,6 +287,7 @@ public class Visualizacion extends javax.swing.JFrame {
     private javax.swing.JLabel jl_registrarUsuario;
     private javax.swing.JLabel jl_titulo;
     private javax.swing.JLabel jl_usuario;
+    private javax.swing.JDialog listar;
     private javax.swing.JTextField tf_id;
     private javax.swing.JTextField tf_lugarNacimiento;
     private javax.swing.JTextField tf_nombre;
