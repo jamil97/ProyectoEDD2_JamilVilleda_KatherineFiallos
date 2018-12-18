@@ -543,10 +543,10 @@ public class PRINCIPAL_PROYECTO extends javax.swing.JFrame {
         String nombre_m = tf_nombremadre1.getText();
         if (archivo.insert(new Personas(ID, nombre, fecha, lugar, nombre_p, nombre_m))) {
              archivo.escribir();
-            JOptionPane.showConfirmDialog(jd_agregar, "Agregado exitosamente");
+            JOptionPane.showMessageDialog(jd_agregar, "Agregado exitosamente");
 
         } else {
-            JOptionPane.showConfirmDialog(jd_agregar, "Error");
+            JOptionPane.showMessageDialog(jd_agregar, "Error");
         }
         tf_ID1.setText("");
         tf_nombre1.setText("");
