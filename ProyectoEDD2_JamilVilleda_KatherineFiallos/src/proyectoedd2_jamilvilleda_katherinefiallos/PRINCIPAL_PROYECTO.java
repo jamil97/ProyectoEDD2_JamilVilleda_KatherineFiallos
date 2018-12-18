@@ -30,9 +30,19 @@ public class PRINCIPAL_PROYECTO extends javax.swing.JFrame {
      */
     public PRINCIPAL_PROYECTO()  {
         initComponents();
-        ImageIcon fondoPrincipal = new ImageIcon(getClass().getResource("/Imagenes/rbd.png"));
+        ImageIcon fondoPrincipal = new ImageIcon(getClass().getResource("/Imagenes/rnp.jpg"));
         ImageIcon nave = new ImageIcon(fondoPrincipal.getImage().getScaledInstance(624, 407, Image.SCALE_DEFAULT));
         jl_fondoPrincipal.setIcon(nave);
+        
+        ImageIcon fondoAgregar = new ImageIcon(getClass().getResource("/Imagenes/white2.jpg"));
+        ImageIcon blanco = new ImageIcon(fondoAgregar.getImage().getScaledInstance(486, 552, Image.SCALE_DEFAULT));
+        jl_fondoAgregar.setIcon(blanco);
+        
+        ImageIcon agregarIcon = new ImageIcon(getClass().getResource("/Imagenes/add.png"));
+        ImageIcon add = new ImageIcon(agregarIcon.getImage().getScaledInstance(200,200, Image.SCALE_DEFAULT));
+        jl_addIcon.setIcon(add);
+        
+        
         
         try {
             archivo = new TDA_ArchivoFijo(new File("./ArchivoFijo.dat"));
@@ -67,6 +77,8 @@ public class PRINCIPAL_PROYECTO extends javax.swing.JFrame {
         bt_Agregarpersona = new javax.swing.JToggleButton();
         tf_fecha1 = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
+        jl_addIcon = new javax.swing.JLabel();
+        jl_fondoAgregar = new javax.swing.JLabel();
         jd_eliminar = new javax.swing.JDialog();
         jLabel15 = new javax.swing.JLabel();
         tf_id_eliminar = new javax.swing.JTextField();
@@ -99,26 +111,42 @@ public class PRINCIPAL_PROYECTO extends javax.swing.JFrame {
         bt_eliminar = new javax.swing.JToggleButton();
         bt_buscar = new javax.swing.JToggleButton();
         bt_listar = new javax.swing.JToggleButton();
+        jLabel16 = new javax.swing.JLabel();
         jl_fondoPrincipal = new javax.swing.JLabel();
 
+        jd_agregar.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
         jLabel1.setText("ID");
+        jd_agregar.getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 231, -1, -1));
 
         jLabel2.setText("Nombre");
+        jd_agregar.getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 272, -1, -1));
 
         jLabel3.setText("Fecha de nacimiento");
+        jd_agregar.getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 317, -1, -1));
 
         jLabel4.setText("Lugar");
+        jd_agregar.getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 359, -1, -1));
 
         jLabel5.setText("Nombre del padre");
+        jd_agregar.getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 400, -1, -1));
 
         jLabel6.setText("Nombre de la madre");
+        jd_agregar.getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 444, -1, -1));
+        jd_agregar.getContentPane().add(tf_ID1, new org.netbeans.lib.awtextra.AbsoluteConstraints(172, 226, 278, -1));
+        jd_agregar.getContentPane().add(tf_nombre1, new org.netbeans.lib.awtextra.AbsoluteConstraints(172, 267, 278, -1));
+        jd_agregar.getContentPane().add(tf_nombrepadre1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 395, 278, -1));
+        jd_agregar.getContentPane().add(tf_lugar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 354, 278, -1));
+        jd_agregar.getContentPane().add(tf_nombremadre1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 439, 278, -1));
 
-        bt_Agregarpersona.setText("AGREGAR");
+        bt_Agregarpersona.setText("Agregar al Archivo");
         bt_Agregarpersona.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 bt_AgregarpersonaMouseClicked(evt);
             }
         });
+        jd_agregar.getContentPane().add(bt_Agregarpersona, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 503, -1, -1));
+        jd_agregar.getContentPane().add(tf_fecha1, new org.netbeans.lib.awtextra.AbsoluteConstraints(172, 312, 278, -1));
 
         jButton1.setText("Cargar Archivos");
         jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -126,78 +154,9 @@ public class PRINCIPAL_PROYECTO extends javax.swing.JFrame {
                 jButton1MouseClicked(evt);
             }
         });
-
-        javax.swing.GroupLayout jd_agregarLayout = new javax.swing.GroupLayout(jd_agregar.getContentPane());
-        jd_agregar.getContentPane().setLayout(jd_agregarLayout);
-        jd_agregarLayout.setHorizontalGroup(
-            jd_agregarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jd_agregarLayout.createSequentialGroup()
-                .addGap(50, 50, 50)
-                .addGroup(jd_agregarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(jd_agregarLayout.createSequentialGroup()
-                        .addComponent(jLabel6)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(tf_nombremadre1, javax.swing.GroupLayout.PREFERRED_SIZE, 278, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jd_agregarLayout.createSequentialGroup()
-                        .addComponent(jLabel5)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(tf_nombrepadre1, javax.swing.GroupLayout.PREFERRED_SIZE, 278, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jd_agregarLayout.createSequentialGroup()
-                        .addComponent(jLabel4)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(tf_lugar1, javax.swing.GroupLayout.PREFERRED_SIZE, 278, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jd_agregarLayout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addGap(183, 183, 183)
-                        .addComponent(tf_ID1, javax.swing.GroupLayout.PREFERRED_SIZE, 278, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jd_agregarLayout.createSequentialGroup()
-                        .addGroup(jd_agregarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel3))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(jd_agregarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(tf_nombre1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 278, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(tf_fecha1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 278, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGroup(jd_agregarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jd_agregarLayout.createSequentialGroup()
-                        .addGap(63, 63, 63)
-                        .addComponent(bt_Agregarpersona))
-                    .addGroup(jd_agregarLayout.createSequentialGroup()
-                        .addGap(47, 47, 47)
-                        .addComponent(jButton1)))
-                .addContainerGap(75, Short.MAX_VALUE))
-        );
-        jd_agregarLayout.setVerticalGroup(
-            jd_agregarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jd_agregarLayout.createSequentialGroup()
-                .addGap(41, 41, 41)
-                .addGroup(jd_agregarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(tf_ID1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(29, 29, 29)
-                .addGroup(jd_agregarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(tf_nombre1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1))
-                .addGap(19, 19, 19)
-                .addGroup(jd_agregarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(tf_fecha1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(24, 24, 24)
-                .addGroup(jd_agregarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(tf_lugar1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(bt_Agregarpersona))
-                .addGap(18, 18, 18)
-                .addGroup(jd_agregarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
-                    .addComponent(tf_nombrepadre1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(29, 29, 29)
-                .addGroup(jd_agregarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel6)
-                    .addComponent(tf_nombremadre1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(58, Short.MAX_VALUE))
-        );
+        jd_agregar.getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(256, 503, -1, -1));
+        jd_agregar.getContentPane().add(jl_addIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 10, 200, 200));
+        jd_agregar.getContentPane().add(jl_fondoAgregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         jLabel15.setText("ID:");
 
@@ -420,7 +379,7 @@ public class PRINCIPAL_PROYECTO extends javax.swing.JFrame {
                 bt_agregarMouseClicked(evt);
             }
         });
-        jPanel1.add(bt_agregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 120, -1, -1));
+        jPanel1.add(bt_agregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 360, -1, -1));
 
         bt_modificar.setText("Modificar");
         bt_modificar.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -428,7 +387,7 @@ public class PRINCIPAL_PROYECTO extends javax.swing.JFrame {
                 bt_modificarMouseClicked(evt);
             }
         });
-        jPanel1.add(bt_modificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 120, -1, -1));
+        jPanel1.add(bt_modificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 360, -1, -1));
 
         bt_eliminar.setText("Eliminar");
         bt_eliminar.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -441,7 +400,7 @@ public class PRINCIPAL_PROYECTO extends javax.swing.JFrame {
                 bt_eliminarActionPerformed(evt);
             }
         });
-        jPanel1.add(bt_eliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 120, -1, -1));
+        jPanel1.add(bt_eliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 360, -1, -1));
 
         bt_buscar.setText("Buscar");
         bt_buscar.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -449,7 +408,7 @@ public class PRINCIPAL_PROYECTO extends javax.swing.JFrame {
                 bt_buscarMouseClicked(evt);
             }
         });
-        jPanel1.add(bt_buscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 260, -1, -1));
+        jPanel1.add(bt_buscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 360, -1, 30));
 
         bt_listar.setText("Listar");
         bt_listar.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -457,7 +416,11 @@ public class PRINCIPAL_PROYECTO extends javax.swing.JFrame {
                 bt_listarMouseClicked(evt);
             }
         });
-        jPanel1.add(bt_listar, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 270, -1, -1));
+        jPanel1.add(bt_listar, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 360, -1, -1));
+
+        jLabel16.setFont(new java.awt.Font("Lucida Grande", 1, 24)); // NOI18N
+        jLabel16.setText("Registro Nacional de las Personas");
+        jPanel1.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 20, -1, -1));
         jPanel1.add(jl_fondoPrincipal, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 624, 410));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -704,6 +667,7 @@ public class PRINCIPAL_PROYECTO extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -719,6 +683,8 @@ public class PRINCIPAL_PROYECTO extends javax.swing.JFrame {
     private javax.swing.JDialog jd_eliminar;
     private javax.swing.JDialog jd_listar;
     private javax.swing.JDialog jd_modificar;
+    private javax.swing.JLabel jl_addIcon;
+    private javax.swing.JLabel jl_fondoAgregar;
     private javax.swing.JLabel jl_fondoPrincipal;
     private javax.swing.JTable jt_listar;
     private javax.swing.JTextField tf_ID1;
