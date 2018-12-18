@@ -211,6 +211,8 @@ public class TDA_ArchivoFijo {
             return true;
         }
     }
+    
+    
     public DefaultTableModel listar(DefaultTableModel model){
         try {
             while(model.getRowCount()>0){
@@ -237,6 +239,8 @@ public class TDA_ArchivoFijo {
         }
         return model;
     }
+
+
     public void escribir(){
         FileOutputStream fw=null;
         ObjectOutputStream bw=null;
@@ -254,6 +258,7 @@ public class TDA_ArchivoFijo {
             }
         }
     }
+
     public boolean cargarArbol(){
         FileInputStream inFile;
         try {

@@ -11,7 +11,6 @@ import java.io.Serializable;
  * @author Jamil
  */
 public class Index implements Serializable{
-     private static final long SerialVersionUID = 666L;
     
    private int Id;
    private int rp; //Relative Position
