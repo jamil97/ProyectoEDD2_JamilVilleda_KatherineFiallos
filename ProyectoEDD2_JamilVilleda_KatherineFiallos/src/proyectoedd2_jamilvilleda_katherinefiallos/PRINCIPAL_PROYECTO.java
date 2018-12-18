@@ -5,10 +5,12 @@
  */
 package proyectoedd2_jamilvilleda_katherinefiallos;
 
+import java.awt.Image;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.JTree;
@@ -26,8 +28,12 @@ public class PRINCIPAL_PROYECTO extends javax.swing.JFrame {
     /**
      * Creates new form PRINCIPAL_PROYECTO
      */
-    public PRINCIPAL_PROYECTO() {
+    public PRINCIPAL_PROYECTO()  {
         initComponents();
+        ImageIcon fondoPrincipal = new ImageIcon(getClass().getResource("/Imagenes/wallpaper2.png"));
+        ImageIcon nave = new ImageIcon(fondoPrincipal.getImage().getScaledInstance(624, 407, Image.SCALE_DEFAULT));
+        jl_fondoPrincipal.setIcon(nave);
+        
         try {
             archivo = new TDA_ArchivoFijo(new File("./ArchivoFijo.dat"));
             if (archivo.cargarArbol()) {
@@ -93,6 +99,7 @@ public class PRINCIPAL_PROYECTO extends javax.swing.JFrame {
         bt_eliminar = new javax.swing.JToggleButton();
         bt_buscar = new javax.swing.JToggleButton();
         bt_listar = new javax.swing.JToggleButton();
+        jl_fondoPrincipal = new javax.swing.JLabel();
 
         jLabel1.setText("ID");
 
@@ -405,12 +412,15 @@ public class PRINCIPAL_PROYECTO extends javax.swing.JFrame {
             }
         });
 
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
         bt_agregar.setText("Agregar");
         bt_agregar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 bt_agregarMouseClicked(evt);
             }
         });
+        jPanel1.add(bt_agregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 120, -1, -1));
 
         bt_modificar.setText("Modificar");
         bt_modificar.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -418,6 +428,7 @@ public class PRINCIPAL_PROYECTO extends javax.swing.JFrame {
                 bt_modificarMouseClicked(evt);
             }
         });
+        jPanel1.add(bt_modificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 120, -1, -1));
 
         bt_eliminar.setText("Eliminar");
         bt_eliminar.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -430,6 +441,7 @@ public class PRINCIPAL_PROYECTO extends javax.swing.JFrame {
                 bt_eliminarActionPerformed(evt);
             }
         });
+        jPanel1.add(bt_eliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 120, -1, -1));
 
         bt_buscar.setText("Buscar");
         bt_buscar.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -437,6 +449,7 @@ public class PRINCIPAL_PROYECTO extends javax.swing.JFrame {
                 bt_buscarMouseClicked(evt);
             }
         });
+        jPanel1.add(bt_buscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 260, -1, -1));
 
         bt_listar.setText("Listar");
         bt_listar.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -444,40 +457,8 @@ public class PRINCIPAL_PROYECTO extends javax.swing.JFrame {
                 bt_listarMouseClicked(evt);
             }
         });
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(69, 69, 69)
-                .addComponent(bt_agregar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 123, Short.MAX_VALUE)
-                .addComponent(bt_modificar)
-                .addGap(112, 112, 112)
-                .addComponent(bt_eliminar)
-                .addGap(86, 86, 86))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(183, 183, 183)
-                .addComponent(bt_buscar)
-                .addGap(139, 139, 139)
-                .addComponent(bt_listar)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(156, 156, 156)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(bt_eliminar)
-                    .addComponent(bt_modificar)
-                    .addComponent(bt_agregar))
-                .addGap(78, 78, 78)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(bt_buscar)
-                    .addComponent(bt_listar))
-                .addContainerGap(199, Short.MAX_VALUE))
-        );
+        jPanel1.add(bt_listar, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 270, -1, -1));
+        jPanel1.add(jl_fondoPrincipal, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 624, 410));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -600,12 +581,17 @@ public class PRINCIPAL_PROYECTO extends javax.swing.JFrame {
 
     
     private void bt_cargarListadoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bt_cargarListadoMouseClicked
+
+
+         archivo.listar((DefaultTableModel) this.jt_listar.getModel());
+
         DefaultTableModel modelo=(DefaultTableModel)jt_listar.getModel();
         for (int i = 0; i < jt_listar.getRowCount(); i++) {
             modelo.removeRow(i);
             i-=1;
         }
         archivo.listar((DefaultTableModel) this.jt_listar.getModel());
+
 
         
     }//GEN-LAST:event_bt_cargarListadoMouseClicked
@@ -733,6 +719,7 @@ public class PRINCIPAL_PROYECTO extends javax.swing.JFrame {
     private javax.swing.JDialog jd_eliminar;
     private javax.swing.JDialog jd_listar;
     private javax.swing.JDialog jd_modificar;
+    private javax.swing.JLabel jl_fondoPrincipal;
     private javax.swing.JTable jt_listar;
     private javax.swing.JTextField tf_ID1;
     private javax.swing.JTextField tf_fecha1;
