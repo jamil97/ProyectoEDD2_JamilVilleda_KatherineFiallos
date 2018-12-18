@@ -533,10 +533,11 @@ public class PRINCIPAL_PROYECTO extends javax.swing.JFrame {
         String nombre = tf_nombre1.getText();
         String fecha = tf_fecha1.getText();
         float salario = Float.parseFloat(tf_salario.getText());
-        
+        //archivo.cargarArbol();
         if (archivo.insert(new Personas(ID, nombre, fecha, salario))) {
              //archivo.escribir();
             JOptionPane.showMessageDialog(jd_agregar, "Agregado exitosamente");
+            //archivo.escribir();
             //archivo.cargarArbol();
 
         } else {
@@ -556,12 +557,13 @@ public class PRINCIPAL_PROYECTO extends javax.swing.JFrame {
 
 
          
-        //archivo.escribir();
+        
         DefaultTableModel modelo=(DefaultTableModel)jt_listar.getModel();
         for (int i = 0; i < jt_listar.getRowCount(); i++) {
             modelo.removeRow(i);
             i-=1;
         }
+        //archivo.cargarArbol();
         archivo.listar((DefaultTableModel) this.jt_listar.getModel());
 
 
@@ -604,6 +606,7 @@ public class PRINCIPAL_PROYECTO extends javax.swing.JFrame {
         try {
             if(archivo.delete(id)){
                 JOptionPane.showMessageDialog(jd_eliminar, "Eliminado");
+               // archivo.escribir();
             }else{
                 JOptionPane.showMessageDialog(jd_eliminar, "Error al eliminar");
             }
@@ -639,6 +642,7 @@ public class PRINCIPAL_PROYECTO extends javax.swing.JFrame {
 
         try {
             if (archivo.modify(new Personas(idNuevo, nuevoNombre, nuevaFechaNacimiento, salario), idModificar)) {
+                //archivo.escribir();
                 JOptionPane.showMessageDialog(jd_modificar, "Se ha modificado exitosamente.");
             } else {
                 JOptionPane.showMessageDialog(jd_modificar, "Ocurrio un error al modificar.");
