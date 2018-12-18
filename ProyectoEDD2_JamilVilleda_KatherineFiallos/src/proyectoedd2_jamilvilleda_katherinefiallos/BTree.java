@@ -34,15 +34,12 @@ public class BTree implements Serializable {
             s.child[0] = r; //Lo que tenia la raiz anterior va a ser hija de la nueva raiz. 
             split(s, 1, r); //Aqui lo que hace es el hijo predecesor y sucesor
             insert(s, k);
-            System.out.println("hola1");
         } else {
             insert(r, k);
-            System.out.println("hola2");
         }
     }
 
     private void insert(Node node, Index value) {
-        System.out.println("hola3");
         int i = node.cantNodos; //3
 
         // int i = node.cantNodos;
