@@ -30,9 +30,19 @@ public class PRINCIPAL_PROYECTO extends javax.swing.JFrame {
      */
     public PRINCIPAL_PROYECTO()  {
         initComponents();
-        ImageIcon fondoPrincipal = new ImageIcon(getClass().getResource("/Imagenes/rbd.png"));
+        ImageIcon fondoPrincipal = new ImageIcon(getClass().getResource("/Imagenes/rnp.jpg"));
         ImageIcon nave = new ImageIcon(fondoPrincipal.getImage().getScaledInstance(624, 407, Image.SCALE_DEFAULT));
         jl_fondoPrincipal.setIcon(nave);
+        
+        ImageIcon fondoAgregar = new ImageIcon(getClass().getResource("/Imagenes/white2.jpg"));
+        ImageIcon blanco = new ImageIcon(fondoAgregar.getImage().getScaledInstance(486, 552, Image.SCALE_DEFAULT));
+        jl_fondoAgregar.setIcon(blanco);
+        
+        ImageIcon agregarIcon = new ImageIcon(getClass().getResource("/Imagenes/add.png"));
+        ImageIcon add = new ImageIcon(agregarIcon.getImage().getScaledInstance(200,200, Image.SCALE_DEFAULT));
+        jl_addIcon.setIcon(add);
+        
+        
         
         try {
             archivo = new TDA_ArchivoFijo(new File("./ArchivoFijo.dat"));
@@ -72,7 +82,12 @@ public class PRINCIPAL_PROYECTO extends javax.swing.JFrame {
         bt_Agregarpersona = new javax.swing.JToggleButton();
         tf_fecha1 = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
+<<<<<<< HEAD
+        jl_addIcon = new javax.swing.JLabel();
+        jl_fondoAgregar = new javax.swing.JLabel();
+=======
         jLabel22 = new javax.swing.JLabel();
+>>>>>>> 33524e1dfe7e4b4df1cb4a95e5f322a92ca33dd1
         jd_eliminar = new javax.swing.JDialog();
         jLabel15 = new javax.swing.JLabel();
         tf_id_eliminar = new javax.swing.JTextField();
@@ -119,26 +134,42 @@ public class PRINCIPAL_PROYECTO extends javax.swing.JFrame {
         bt_eliminar = new javax.swing.JToggleButton();
         bt_buscar = new javax.swing.JToggleButton();
         bt_listar = new javax.swing.JToggleButton();
+        jLabel16 = new javax.swing.JLabel();
         jl_fondoPrincipal = new javax.swing.JLabel();
 
+        jd_agregar.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
         jLabel1.setText("ID");
+        jd_agregar.getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 231, -1, -1));
 
         jLabel2.setText("Nombre");
+        jd_agregar.getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 272, -1, -1));
 
         jLabel3.setText("Fecha de nacimiento");
+        jd_agregar.getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 317, -1, -1));
 
         jLabel4.setText("Lugar");
+        jd_agregar.getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 359, -1, -1));
 
         jLabel5.setText("Nombre del padre");
+        jd_agregar.getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 400, -1, -1));
 
         jLabel6.setText("Nombre de la madre");
+        jd_agregar.getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 444, -1, -1));
+        jd_agregar.getContentPane().add(tf_ID1, new org.netbeans.lib.awtextra.AbsoluteConstraints(172, 226, 278, -1));
+        jd_agregar.getContentPane().add(tf_nombre1, new org.netbeans.lib.awtextra.AbsoluteConstraints(172, 267, 278, -1));
+        jd_agregar.getContentPane().add(tf_nombrepadre1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 395, 278, -1));
+        jd_agregar.getContentPane().add(tf_lugar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 354, 278, -1));
+        jd_agregar.getContentPane().add(tf_nombremadre1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 439, 278, -1));
 
-        bt_Agregarpersona.setText("AGREGAR");
+        bt_Agregarpersona.setText("Agregar al Archivo");
         bt_Agregarpersona.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 bt_AgregarpersonaMouseClicked(evt);
             }
         });
+        jd_agregar.getContentPane().add(bt_Agregarpersona, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 503, -1, -1));
+        jd_agregar.getContentPane().add(tf_fecha1, new org.netbeans.lib.awtextra.AbsoluteConstraints(172, 312, 278, -1));
 
         jButton1.setText("Cargar Archivos");
         jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -146,6 +177,11 @@ public class PRINCIPAL_PROYECTO extends javax.swing.JFrame {
                 jButton1MouseClicked(evt);
             }
         });
+<<<<<<< HEAD
+        jd_agregar.getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(256, 503, -1, -1));
+        jd_agregar.getContentPane().add(jl_addIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 10, 200, 200));
+        jd_agregar.getContentPane().add(jl_fondoAgregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+=======
 
         jLabel22.setText("yyyy/mm/dd");
 
@@ -224,6 +260,7 @@ public class PRINCIPAL_PROYECTO extends javax.swing.JFrame {
                     .addComponent(tf_nombremadre1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(58, Short.MAX_VALUE))
         );
+>>>>>>> 33524e1dfe7e4b4df1cb4a95e5f322a92ca33dd1
 
         jLabel15.setText("ID:");
 
@@ -524,7 +561,7 @@ public class PRINCIPAL_PROYECTO extends javax.swing.JFrame {
                 bt_agregarMouseClicked(evt);
             }
         });
-        jPanel1.add(bt_agregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 120, -1, -1));
+        jPanel1.add(bt_agregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 360, -1, -1));
 
         bt_modificar.setText("Modificar");
         bt_modificar.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -532,7 +569,7 @@ public class PRINCIPAL_PROYECTO extends javax.swing.JFrame {
                 bt_modificarMouseClicked(evt);
             }
         });
-        jPanel1.add(bt_modificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 120, -1, -1));
+        jPanel1.add(bt_modificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 360, -1, -1));
 
         bt_eliminar.setText("Eliminar");
         bt_eliminar.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -545,7 +582,7 @@ public class PRINCIPAL_PROYECTO extends javax.swing.JFrame {
                 bt_eliminarActionPerformed(evt);
             }
         });
-        jPanel1.add(bt_eliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 120, -1, -1));
+        jPanel1.add(bt_eliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 360, -1, -1));
 
         bt_buscar.setText("Buscar");
         bt_buscar.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -553,7 +590,7 @@ public class PRINCIPAL_PROYECTO extends javax.swing.JFrame {
                 bt_buscarMouseClicked(evt);
             }
         });
-        jPanel1.add(bt_buscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 260, -1, -1));
+        jPanel1.add(bt_buscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 360, -1, 30));
 
         bt_listar.setText("Listar");
         bt_listar.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -561,7 +598,11 @@ public class PRINCIPAL_PROYECTO extends javax.swing.JFrame {
                 bt_listarMouseClicked(evt);
             }
         });
-        jPanel1.add(bt_listar, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 270, -1, -1));
+        jPanel1.add(bt_listar, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 360, -1, -1));
+
+        jLabel16.setFont(new java.awt.Font("Lucida Grande", 1, 24)); // NOI18N
+        jLabel16.setText("Registro Nacional de las Personas");
+        jPanel1.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 20, -1, -1));
         jPanel1.add(jl_fondoPrincipal, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 624, 410));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -849,9 +890,12 @@ public class PRINCIPAL_PROYECTO extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
+<<<<<<< HEAD
+=======
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
+>>>>>>> 33524e1dfe7e4b4df1cb4a95e5f322a92ca33dd1
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
@@ -870,6 +914,8 @@ public class PRINCIPAL_PROYECTO extends javax.swing.JFrame {
     private javax.swing.JDialog jd_eliminar;
     private javax.swing.JDialog jd_listar;
     private javax.swing.JDialog jd_modificar;
+    private javax.swing.JLabel jl_addIcon;
+    private javax.swing.JLabel jl_fondoAgregar;
     private javax.swing.JLabel jl_fondoPrincipal;
     private javax.swing.JTable jt_listar;
     private javax.swing.JTextField tf_ID1;
