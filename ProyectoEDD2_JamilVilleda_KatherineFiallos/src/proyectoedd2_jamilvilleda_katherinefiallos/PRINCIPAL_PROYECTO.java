@@ -53,10 +53,25 @@ public class PRINCIPAL_PROYECTO extends javax.swing.JFrame {
         tf_nombremadre1 = new javax.swing.JTextField();
         bt_Agregarpersona = new javax.swing.JToggleButton();
         tf_fecha1 = new javax.swing.JTextField();
-        jd_modificar = new javax.swing.JDialog();
         jd_eliminar = new javax.swing.JDialog();
         jd_buscar = new javax.swing.JDialog();
         jd_listar = new javax.swing.JDialog();
+        jd_modificar = new javax.swing.JDialog();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        tf_idModificar = new javax.swing.JTextField();
+        tf_nuevoID = new javax.swing.JTextField();
+        tf_nuevaFecha = new javax.swing.JTextField();
+        tf_nuevoNombre = new javax.swing.JTextField();
+        tf_nuevoNombrePadre = new javax.swing.JTextField();
+        tf_nuevoNombreMadre = new javax.swing.JTextField();
+        jLabel13 = new javax.swing.JLabel();
+        tf_nuevoLugarNacimiento = new javax.swing.JTextField();
+        bt_confirmar = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         bt_agregar = new javax.swing.JToggleButton();
         bt_modificar = new javax.swing.JToggleButton();
@@ -153,17 +168,6 @@ public class PRINCIPAL_PROYECTO extends javax.swing.JFrame {
                 .addContainerGap(65, Short.MAX_VALUE))
         );
 
-        javax.swing.GroupLayout jd_modificarLayout = new javax.swing.GroupLayout(jd_modificar.getContentPane());
-        jd_modificar.getContentPane().setLayout(jd_modificarLayout);
-        jd_modificarLayout.setHorizontalGroup(
-            jd_modificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
-        );
-        jd_modificarLayout.setVerticalGroup(
-            jd_modificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
-        );
-
         javax.swing.GroupLayout jd_eliminarLayout = new javax.swing.GroupLayout(jd_eliminar.getContentPane());
         jd_eliminar.getContentPane().setLayout(jd_eliminarLayout);
         jd_eliminarLayout.setHorizontalGroup(
@@ -195,6 +199,100 @@ public class PRINCIPAL_PROYECTO extends javax.swing.JFrame {
         jd_listarLayout.setVerticalGroup(
             jd_listarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 300, Short.MAX_VALUE)
+        );
+
+        jLabel7.setText("Nº de ID a modificar:");
+
+        jLabel8.setText("Nuevo numero de ID: ");
+
+        jLabel9.setText("Nombre: ");
+
+        jLabel10.setText("Fecha de Nacimiento:");
+
+        jLabel11.setText("Nombre de Padre: ");
+
+        jLabel12.setText("Nombre de Madre:");
+
+        jLabel13.setText("Lugar de Nacimiento:");
+
+        bt_confirmar.setText("Confirmar");
+        bt_confirmar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                bt_confirmarMouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jd_modificarLayout = new javax.swing.GroupLayout(jd_modificar.getContentPane());
+        jd_modificar.getContentPane().setLayout(jd_modificarLayout);
+        jd_modificarLayout.setHorizontalGroup(
+            jd_modificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jd_modificarLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jd_modificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(jd_modificarLayout.createSequentialGroup()
+                        .addComponent(jLabel7)
+                        .addGap(18, 18, 18)
+                        .addComponent(tf_idModificar, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jd_modificarLayout.createSequentialGroup()
+                        .addGroup(jd_modificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel8)
+                            .addComponent(jLabel9))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jd_modificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(tf_nuevoNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(tf_nuevoID, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jd_modificarLayout.createSequentialGroup()
+                        .addGroup(jd_modificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel10)
+                            .addComponent(jLabel11)
+                            .addComponent(jLabel12))
+                        .addGap(18, 18, 18)
+                        .addGroup(jd_modificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(tf_nuevoNombreMadre, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(tf_nuevoNombrePadre, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(tf_nuevaFecha, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jd_modificarLayout.createSequentialGroup()
+                        .addComponent(jLabel13)
+                        .addGap(18, 18, 18)
+                        .addGroup(jd_modificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(bt_confirmar)
+                            .addComponent(tf_nuevoLugarNacimiento))))
+                .addContainerGap(63, Short.MAX_VALUE))
+        );
+        jd_modificarLayout.setVerticalGroup(
+            jd_modificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jd_modificarLayout.createSequentialGroup()
+                .addGap(147, 147, 147)
+                .addGroup(jd_modificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tf_idModificar, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(21, 21, 21)
+                .addGroup(jd_modificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel8)
+                    .addComponent(tf_nuevoID, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jd_modificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel9)
+                    .addComponent(tf_nuevoNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(19, 19, 19)
+                .addGroup(jd_modificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel10)
+                    .addComponent(tf_nuevaFecha, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(24, 24, 24)
+                .addGroup(jd_modificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel11)
+                    .addComponent(tf_nuevoNombrePadre, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(20, 20, 20)
+                .addGroup(jd_modificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel12)
+                    .addComponent(tf_nuevoNombreMadre, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(21, 21, 21)
+                .addGroup(jd_modificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel13)
+                    .addComponent(tf_nuevoLugarNacimiento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
+                .addComponent(bt_confirmar)
+                .addContainerGap())
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -346,6 +444,23 @@ public class PRINCIPAL_PROYECTO extends javax.swing.JFrame {
         
     }//GEN-LAST:event_bt_AgregarpersonaMouseClicked
 
+    private void bt_confirmarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bt_confirmarMouseClicked
+        
+        int idModificar;
+        int nuevoId;
+        String nombre;
+        String fechaNacimiento;
+        String nombrePadre;
+        String nombreMadre;
+        String lugarNacimiento;
+        
+        
+        
+        
+        
+        
+    }//GEN-LAST:event_bt_confirmarMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -385,15 +500,23 @@ public class PRINCIPAL_PROYECTO extends javax.swing.JFrame {
     private javax.swing.JToggleButton bt_Agregarpersona;
     private javax.swing.JToggleButton bt_agregar;
     private javax.swing.JToggleButton bt_buscar;
+    private javax.swing.JButton bt_confirmar;
     private javax.swing.JToggleButton bt_eliminar;
     private javax.swing.JToggleButton bt_listar;
     private javax.swing.JToggleButton bt_modificar;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JDialog jd_agregar;
     private javax.swing.JDialog jd_buscar;
@@ -402,9 +525,16 @@ public class PRINCIPAL_PROYECTO extends javax.swing.JFrame {
     private javax.swing.JDialog jd_modificar;
     private javax.swing.JTextField tf_ID1;
     private javax.swing.JTextField tf_fecha1;
+    private javax.swing.JTextField tf_idModificar;
     private javax.swing.JTextField tf_lugar1;
     private javax.swing.JTextField tf_nombre1;
     private javax.swing.JTextField tf_nombremadre1;
     private javax.swing.JTextField tf_nombrepadre1;
+    private javax.swing.JTextField tf_nuevaFecha;
+    private javax.swing.JTextField tf_nuevoID;
+    private javax.swing.JTextField tf_nuevoLugarNacimiento;
+    private javax.swing.JTextField tf_nuevoNombre;
+    private javax.swing.JTextField tf_nuevoNombreMadre;
+    private javax.swing.JTextField tf_nuevoNombrePadre;
     // End of variables declaration//GEN-END:variables
 }

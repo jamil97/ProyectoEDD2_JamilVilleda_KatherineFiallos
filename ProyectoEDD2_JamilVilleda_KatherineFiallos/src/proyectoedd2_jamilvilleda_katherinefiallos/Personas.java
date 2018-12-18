@@ -10,6 +10,7 @@ package proyectoedd2_jamilvilleda_katherinefiallos;
  * @author KATHERINE
  */
 public class Personas {
+    
     private int id;
     private String name;
     private String birthdate;
@@ -30,6 +31,8 @@ public class Personas {
         this.borrado = '-';
         this.referencia = 0;
     }
+    
+    
 
     public Personas() {
     }

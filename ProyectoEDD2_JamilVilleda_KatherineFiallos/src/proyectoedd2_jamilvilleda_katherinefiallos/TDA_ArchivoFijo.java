@@ -114,7 +114,7 @@ public class TDA_ArchivoFijo {
         return created;  
     }
     
-    public boolean detele(int id) throws IOException{
+    public boolean delete(int id) throws IOException{
         Personas personas=new Personas();
         boolean found=false;
         Index rp=new Index();
