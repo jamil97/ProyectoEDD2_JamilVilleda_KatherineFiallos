@@ -380,6 +380,11 @@ public class PRINCIPAL_PROYECTO extends javax.swing.JFrame {
                 bt_eliminarMouseClicked(evt);
             }
         });
+        bt_eliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bt_eliminarActionPerformed(evt);
+            }
+        });
 
         bt_buscar.setText("Buscar");
         bt_buscar.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -546,9 +551,11 @@ public class PRINCIPAL_PROYECTO extends javax.swing.JFrame {
         nuevoLugarNacimiento = this.tf_nuevoLugarNacimiento.getText();
 
         try {
-            if (archivo.modify(new Personas(idNuevo, nuevoNombre, nuevaFechaNacimiento, nuevoLugarNacimiento, nuevoNombrePadre, nuevoNombrePadre), idModificar)) {
+            if (archivo.modify(new Personas(idNuevo, nuevoNombre, nuevaFechaNacimiento, nuevoLugarNacimiento, nuevoNombrePadre, nuevoNombreMadre), idModificar)) {
+                System.out.println("paso1");
                 JOptionPane.showMessageDialog(jd_modificar, "Se ha modificado exitosamente.");
             } else {
+                System.out.println("paso2");
                 JOptionPane.showMessageDialog(jd_modificar, "Ocurrio un error al modificar.");
             }
         } catch (Exception e) {
@@ -573,7 +580,7 @@ public class PRINCIPAL_PROYECTO extends javax.swing.JFrame {
             if(archivo.delete(id) ){
                 JOptionPane.showMessageDialog(jd_eliminar, "Eliminado");
             }else{
-                JOptionPane.showMessageDialog(jd_eliminar, "Errror!");
+                JOptionPane.showMessageDialog(jd_eliminar, "Error!");
             }
         } catch (Exception ex) {
             JOptionPane.showMessageDialog(jd_agregar, "Error!");
@@ -599,6 +606,7 @@ public class PRINCIPAL_PROYECTO extends javax.swing.JFrame {
                     lugar=personas[3];
                     nombre_padre=personas[4];
                     nombre_madre=personas[5];
+                    archivo.insert(new Personas(id,nombre,fecha,lugar,nombre_padre,nombre_madre));
                 }
             }
             JOptionPane.showMessageDialog(jd_agregar, "Archivos Agregados");
@@ -610,6 +618,10 @@ public class PRINCIPAL_PROYECTO extends javax.swing.JFrame {
         // TODO add your handling code here:
         archivo.escribir();
     }//GEN-LAST:event_formWindowClosing
+
+    private void bt_eliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_eliminarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_bt_eliminarActionPerformed
 
     /**
      * @param args the command line arguments

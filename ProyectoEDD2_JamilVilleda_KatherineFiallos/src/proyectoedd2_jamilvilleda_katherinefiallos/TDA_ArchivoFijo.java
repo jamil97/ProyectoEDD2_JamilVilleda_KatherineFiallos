@@ -179,7 +179,6 @@ public class TDA_ArchivoFijo {
     public boolean modify(Personas newPersonas,int id)throws IOException{
         Index pos=new Index();
         pos=arbol.search(id);
-        System.out.println(pos.getId());
         if(pos==null){
             return false;
         }else if(pos.getId() !=newPersonas.getId()){
@@ -192,10 +191,14 @@ public class TDA_ArchivoFijo {
             flujo.writeUTF(newPersonas.getPlace());
             flujo.writeUTF(newPersonas.getName_father());
             flujo.writeUTF(newPersonas.getName_mother());
+           
             arbol.delete(id);
+            System.out.println("arbol delete");
             arbol.insert(pos);
+            System.out.println("arbol insert");
             return true;
         }else{
+            System.out.println("aja3");
             flujo.seek((pos.getRp()-1)*newPersonas.sizeOf()+headerSize);
             flujo.writeChar(newPersonas.getBorrado());
             flujo.writeInt(newPersonas.getReferencia());
