@@ -30,7 +30,7 @@ public class PRINCIPAL_PROYECTO extends javax.swing.JFrame {
      */
     public PRINCIPAL_PROYECTO()  {
         initComponents();
-        ImageIcon fondoPrincipal = new ImageIcon(getClass().getResource("/Imagenes/wallpaper2.png"));
+        ImageIcon fondoPrincipal = new ImageIcon(getClass().getResource("/Imagenes/rbd.png"));
         ImageIcon nave = new ImageIcon(fondoPrincipal.getImage().getScaledInstance(624, 407, Image.SCALE_DEFAULT));
         jl_fondoPrincipal.setIcon(nave);
         
