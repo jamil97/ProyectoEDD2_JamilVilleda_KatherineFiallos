@@ -25,10 +25,10 @@ public class BTree implements Serializable {
     }
 
     public void insert(Index k) {
-        Node r = root; 
+        Node r = root;
         if (r.cantNodos == 3) { //Si se llena empieza la jerarquia
             Node s = new Node();//creamos una nueva raiz.
-            root = s;  
+            root = s;
             s.cantNodos = 0;
             s.isLeaf = false;
             s.child[0] = r; //Lo que tenia la raiz anterior va a ser hija de la nueva raiz. 
@@ -43,41 +43,50 @@ public class BTree implements Serializable {
 
         int i = node.cantNodos; //3
 
-       // int i = node.cantNodos;
-        
+        // int i = node.cantNodos;
         if (node.isLeaf) {
-            while (i >= 1 && value.getId() < node.key[i - 1].getId()) { 
+            while (i >= 1 && value.getId() < node.key[i - 1].getId()) {
                 node.key[i] = node.key[i - 1];
                 i--;
 
-            } 
     //Hacemos una verificacion de que es menor
     //Si el valor es 1 que en el arreglo seria 0, y el id de lo que estamos insertando
     //es menor que lo que ya estaba antes de predeterminado ya, entonces empezamos a ordenar
     //las llaves.
             
-            
+            }
             node.key[i] = value;                 
             node.cantNodos++;
             
+
+            
+            //Hacemos una verificacion de que es menor
+            //Si el valor es 1 que en el arreglo seria 0, y el id de lo que estamos insertando
+            //es menor que lo que ya estaba antes de predeterminado ya, entonces empezamos a ordenar
+            //las llaves.
+
+           /* node.key[i] = value;
+              node.cantNodos++;*/
+
         } else {
             while (i >= i && value.getId() < node.key[i - 1].getId()) {
-                i--;
-            }
-            i++;
-            if (node.child[i - 1].cantNodos == 3) {
-                split(node, i, node.child[i - 1]);
-                if (value.getId() > node.key[i - 1].getId()) {
-                    i++;
-                }
-            }
-            
-            insert(node.child[i - 1], value);
-            
+            i--;
         }
-    }
 
-    private void split(Node parent, int childIndex, Node newChild) {
+        i++;
+        if (node.child[i - 1].cantNodos == 3) {
+            split(node, i, node.child[i - 1]);
+            if (value.getId() > node.key[i - 1].getId()) {
+                i++;
+            }
+        }
+
+        insert(node.child[i - 1], value);
+
+    }
+}
+
+private void split(Node parent, int childIndex, Node newChild) {
 
         Node node = new Node();
         node.isLeaf = newChild.isLeaf;

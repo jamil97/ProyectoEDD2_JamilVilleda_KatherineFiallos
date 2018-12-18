@@ -49,7 +49,7 @@ public class TDA_ArchivoFijo {
                     Personas personas=new Personas();
                     flujo.seek(0+headerSize);
                     while(true){
-                        flujo.seek((header-10)*personas.sizeOf()+headerSize);
+                        flujo.seek((header-1)*personas.sizeOf()+headerSize);
                         flujo.readChar();
                         header=flujo.readInt();
                         if(header!=-1){
@@ -116,7 +116,7 @@ public class TDA_ArchivoFijo {
         return created;  
     }
     
-    public boolean detele(int id) throws IOException{
+    public boolean delete(int id) throws IOException{
         Personas personas=new Personas();
         boolean found=false;
         Index rp=new Index();
