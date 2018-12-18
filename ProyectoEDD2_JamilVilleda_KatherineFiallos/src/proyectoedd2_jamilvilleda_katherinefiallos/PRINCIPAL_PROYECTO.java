@@ -80,6 +80,16 @@ public class PRINCIPAL_PROYECTO extends javax.swing.JFrame {
         tf_id_eliminar = new javax.swing.JTextField();
         bt_eliminar_persona = new javax.swing.JButton();
         jd_buscar = new javax.swing.JDialog();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        tf_id_buscar = new javax.swing.JTextField();
+        tf_nombre_buscar = new javax.swing.JTextField();
+        tf_fecha_buscar = new javax.swing.JTextField();
+        tf_salario_buscar = new javax.swing.JTextField();
+        bt_personas_buscar = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
         jd_listar = new javax.swing.JDialog();
         jLabel14 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -179,15 +189,73 @@ public class PRINCIPAL_PROYECTO extends javax.swing.JFrame {
                 .addContainerGap(152, Short.MAX_VALUE))
         );
 
+        jLabel5.setText("ID:");
+
+        jLabel6.setText("Nombre:");
+
+        jLabel11.setText("Fecha de nacimiento:");
+
+        jLabel12.setText("Salario:");
+
+        bt_personas_buscar.setText("Buscar Personas");
+        bt_personas_buscar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                bt_personas_buscarMouseClicked(evt);
+            }
+        });
+
+        jButton2.setText("Buscar otra persona");
+
         javax.swing.GroupLayout jd_buscarLayout = new javax.swing.GroupLayout(jd_buscar.getContentPane());
         jd_buscar.getContentPane().setLayout(jd_buscarLayout);
         jd_buscarLayout.setHorizontalGroup(
             jd_buscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(jd_buscarLayout.createSequentialGroup()
+                .addGroup(jd_buscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jd_buscarLayout.createSequentialGroup()
+                        .addGap(81, 81, 81)
+                        .addGroup(jd_buscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel5)
+                            .addComponent(jLabel6)
+                            .addComponent(jLabel11)
+                            .addComponent(jLabel12))
+                        .addGap(24, 24, 24)
+                        .addGroup(jd_buscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(tf_salario_buscar, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(tf_fecha_buscar, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(tf_nombre_buscar, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(tf_id_buscar, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jd_buscarLayout.createSequentialGroup()
+                        .addGap(109, 109, 109)
+                        .addComponent(bt_personas_buscar)
+                        .addGap(129, 129, 129)
+                        .addComponent(jButton2)))
+                .addContainerGap(58, Short.MAX_VALUE))
         );
         jd_buscarLayout.setVerticalGroup(
             jd_buscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(jd_buscarLayout.createSequentialGroup()
+                .addGap(64, 64, 64)
+                .addGroup(jd_buscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel5)
+                    .addComponent(tf_id_buscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(33, 33, 33)
+                .addGroup(jd_buscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel6)
+                    .addComponent(tf_nombre_buscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(34, 34, 34)
+                .addGroup(jd_buscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(tf_fecha_buscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel11))
+                .addGap(44, 44, 44)
+                .addGroup(jd_buscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel12)
+                    .addComponent(tf_salario_buscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(54, 54, 54)
+                .addGroup(jd_buscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(bt_personas_buscar)
+                    .addComponent(jButton2))
+                .addContainerGap(58, Short.MAX_VALUE))
         );
 
         jLabel14.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
@@ -570,6 +638,25 @@ public class PRINCIPAL_PROYECTO extends javax.swing.JFrame {
         tf_salario.setText("");
     }//GEN-LAST:event_bt_confirmarMouseClicked
 
+    private void bt_personas_buscarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bt_personas_buscarMouseClicked
+        // TODO add your handling code here:
+        int IDbuscar;
+        IDbuscar=Integer.parseInt(tf_id_buscar.getText());
+        try {
+            if(archivo.search(IDbuscar)!=null){
+                Personas per=archivo.search(IDbuscar);
+                tf_nombre_buscar.setText(per.getName());
+                tf_fecha_buscar.setText(per.getBirthdate());
+                tf_salario_buscar.setText(per.getSalary()+"");
+            }else{
+                JOptionPane.showMessageDialog(jd_buscar, "No se encontro esa persona");
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(jd_buscar, "error!");
+        }
+        
+    }//GEN-LAST:event_bt_personas_buscarMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -615,9 +702,13 @@ public class PRINCIPAL_PROYECTO extends javax.swing.JFrame {
     private javax.swing.JButton bt_eliminar_persona;
     private javax.swing.JToggleButton bt_listar;
     private javax.swing.JToggleButton bt_modificar;
+    private javax.swing.JButton bt_personas_buscar;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
@@ -625,6 +716,8 @@ public class PRINCIPAL_PROYECTO extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
@@ -641,13 +734,17 @@ public class PRINCIPAL_PROYECTO extends javax.swing.JFrame {
     private javax.swing.JTable jt_listar;
     private javax.swing.JTextField tf_ID1;
     private javax.swing.JTextField tf_fecha1;
+    private javax.swing.JTextField tf_fecha_buscar;
     private javax.swing.JTextField tf_idModificar;
+    private javax.swing.JTextField tf_id_buscar;
     private javax.swing.JTextField tf_id_eliminar;
     private javax.swing.JTextField tf_nombre1;
+    private javax.swing.JTextField tf_nombre_buscar;
     private javax.swing.JTextField tf_nuevaFecha;
     private javax.swing.JTextField tf_nuevoID;
     private javax.swing.JTextField tf_nuevoNombre;
     private javax.swing.JTextField tf_nuevoSalario;
     private javax.swing.JTextField tf_salario;
+    private javax.swing.JTextField tf_salario_buscar;
     // End of variables declaration//GEN-END:variables
 }
