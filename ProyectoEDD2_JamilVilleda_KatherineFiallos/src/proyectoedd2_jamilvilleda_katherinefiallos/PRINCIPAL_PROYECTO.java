@@ -14,6 +14,7 @@ import javax.swing.JTree;
  * @author KATHERINE
  */
 public class PRINCIPAL_PROYECTO extends javax.swing.JFrame {
+
     private TDA_ArchivoFijo archivo;
 
     /**
@@ -22,9 +23,9 @@ public class PRINCIPAL_PROYECTO extends javax.swing.JFrame {
     public PRINCIPAL_PROYECTO() {
         initComponents();
         try {
-            archivo=new TDA_ArchivoFijo(new File("./ArchivoFijo.dat"));
-            if(archivo.cargarArbol()){
-                
+            archivo = new TDA_ArchivoFijo(new File("./ArchivoFijo.dat"));
+            if (archivo.cargarArbol()) {
+
             }
         } catch (Exception e) {
         }
@@ -56,6 +57,7 @@ public class PRINCIPAL_PROYECTO extends javax.swing.JFrame {
         jd_eliminar = new javax.swing.JDialog();
         jd_buscar = new javax.swing.JDialog();
         jd_listar = new javax.swing.JDialog();
+        jLabel14 = new javax.swing.JLabel();
         jd_modificar = new javax.swing.JDialog();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
@@ -190,15 +192,23 @@ public class PRINCIPAL_PROYECTO extends javax.swing.JFrame {
             .addGap(0, 300, Short.MAX_VALUE)
         );
 
+        jLabel14.setText("Lista de personas en el sistema");
+
         javax.swing.GroupLayout jd_listarLayout = new javax.swing.GroupLayout(jd_listar.getContentPane());
         jd_listar.getContentPane().setLayout(jd_listarLayout);
         jd_listarLayout.setHorizontalGroup(
             jd_listarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(jd_listarLayout.createSequentialGroup()
+                .addGap(130, 130, 130)
+                .addComponent(jLabel14)
+                .addContainerGap(154, Short.MAX_VALUE))
         );
         jd_listarLayout.setVerticalGroup(
             jd_listarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(jd_listarLayout.createSequentialGroup()
+                .addGap(43, 43, 43)
+                .addComponent(jLabel14)
+                .addContainerGap(394, Short.MAX_VALUE))
         );
 
         jLabel7.setText("Nº de ID a modificar:");
@@ -390,7 +400,7 @@ public class PRINCIPAL_PROYECTO extends javax.swing.JFrame {
 
     private void bt_modificarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bt_modificarMouseClicked
         // TODO add your handling code here:
-         jd_modificar.setModal(true);
+        jd_modificar.setModal(true);
         jd_modificar.pack();
         jd_modificar.setLocationRelativeTo(this);
         jd_modificar.setVisible(true);
@@ -398,7 +408,7 @@ public class PRINCIPAL_PROYECTO extends javax.swing.JFrame {
 
     private void bt_eliminarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bt_eliminarMouseClicked
         // TODO add your handling code here:
-         jd_eliminar.setModal(true);
+        jd_eliminar.setModal(true);
         jd_eliminar.pack();
         jd_eliminar.setLocationRelativeTo(this);
         jd_eliminar.setVisible(true);
@@ -422,17 +432,17 @@ public class PRINCIPAL_PROYECTO extends javax.swing.JFrame {
 
     private void bt_AgregarpersonaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bt_AgregarpersonaMouseClicked
         // TODO add your handling code here:
-        int ID=Integer.parseInt(tf_ID1.getText());
-        String nombre=tf_nombre1.getText();
-        String fecha=tf_fecha1.getText();
-        String lugar=tf_lugar1.getText();
-        String nombre_p=tf_nombrepadre1.getText();
-        String nombre_m=tf_nombremadre1.getText();
-        if(archivo.insert(new Personas(ID,nombre,fecha,lugar,nombre_p,nombre_m))){
+        int ID = Integer.parseInt(tf_ID1.getText());
+        String nombre = tf_nombre1.getText();
+        String fecha = tf_fecha1.getText();
+        String lugar = tf_lugar1.getText();
+        String nombre_p = tf_nombrepadre1.getText();
+        String nombre_m = tf_nombremadre1.getText();
+        if (archivo.insert(new Personas(ID, nombre, fecha, lugar, nombre_p, nombre_m))) {
             JOptionPane.showConfirmDialog(jd_agregar, "Agregado exitosamente");
-            
-        }else{
-             JOptionPane.showConfirmDialog(jd_agregar, "Error");
+
+        } else {
+            JOptionPane.showConfirmDialog(jd_agregar, "Error");
         }
         tf_ID1.setText("");
         tf_nombre1.setText("");
@@ -440,17 +450,46 @@ public class PRINCIPAL_PROYECTO extends javax.swing.JFrame {
         tf_lugar1.setText("");
         tf_nombrepadre1.setText("");
         tf_nombremadre1.setText("");
-               
-        
+
+
     }//GEN-LAST:event_bt_AgregarpersonaMouseClicked
 
     private void bt_confirmarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bt_confirmarMouseClicked
+
+        int idModificar;
+        int idNuevo;
+        String nuevoNombre;
+        String nuevaFechaNacimiento;
+        String nuevoNombrePadre;
+        String nuevoNombreMadre;
+        String nuevoLugarNacimiento;
+
+        idModificar = Integer.parseInt(this.tf_idModificar.getText());
+        idNuevo = Integer.parseInt(this.tf_nuevoID.getText());
+        nuevoNombre = this.tf_nuevoNombre.getText();
+        nuevaFechaNacimiento = this.tf_nuevaFecha.getText();
+        nuevoNombreMadre = this.tf_nuevoNombreMadre.getText();
+        nuevoNombrePadre = this.tf_nuevoNombrePadre.getText();
+        nuevoLugarNacimiento = this.tf_nuevoLugarNacimiento.getText();
+
+        try {
+            if (archivo.modify(new Personas(idNuevo, nuevoNombre, nuevaFechaNacimiento, nuevoLugarNacimiento, nuevoNombrePadre, nuevoNombrePadre), idModificar)) {
+                JOptionPane.showMessageDialog(jd_modificar, "Se ha modificado exitosamente.");
+            } else {
+                JOptionPane.showMessageDialog(jd_modificar, "Ocurrio un error al modificar.");
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(jd_modificar, "Error");
+        }
         
-        
-        
-        
-        
-        
+        tf_idModificar.setText("");
+        tf_nuevoID.setText("");
+        tf_nuevoNombre.setText("");
+        tf_nuevaFecha.setText("");
+        tf_nuevoNombreMadre.setText("");
+        tf_nuevoNombrePadre.setText("");
+        tf_nuevoLugarNacimiento.setText("");
+
     }//GEN-LAST:event_bt_confirmarMouseClicked
 
     /**
@@ -501,6 +540,7 @@ public class PRINCIPAL_PROYECTO extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
