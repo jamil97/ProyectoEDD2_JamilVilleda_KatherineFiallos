@@ -73,9 +73,9 @@ public class PRINCIPAL_PROYECTO extends javax.swing.JFrame {
         tf_fecha1 = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         jl_addIcon = new javax.swing.JLabel();
-        jl_fondoAgregar = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
         tf_salario = new javax.swing.JTextField();
+        jl_fondoAgregar = new javax.swing.JLabel();
         jd_eliminar = new javax.swing.JDialog();
         jLabel15 = new javax.swing.JLabel();
         tf_id_eliminar = new javax.swing.JTextField();
@@ -147,11 +147,11 @@ public class PRINCIPAL_PROYECTO extends javax.swing.JFrame {
         });
         jd_agregar.getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 440, -1, -1));
         jd_agregar.getContentPane().add(jl_addIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 10, 200, 200));
-        jd_agregar.getContentPane().add(jl_fondoAgregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         jLabel17.setText("Salario");
         jd_agregar.getContentPane().add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 360, 60, 30));
         jd_agregar.getContentPane().add(tf_salario, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 360, 280, -1));
+        jd_agregar.getContentPane().add(jl_fondoAgregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         jLabel15.setText("ID:");
 
