@@ -618,12 +618,11 @@ public class PRINCIPAL_PROYECTO extends javax.swing.JFrame {
         idNuevo = Integer.parseInt(this.tf_nuevoID.getText());
         nuevoNombre = this.tf_nuevoNombre.getText();
         nuevaFechaNacimiento = this.tf_nuevaFecha.getText();
-        salario = Float.parseFloat(this.tf_salario.getText());
+        salario = Float.parseFloat(this.tf_nuevoSalario.getText());
         
 
         try {
             if (archivo.modify(new Personas(idNuevo, nuevoNombre, nuevaFechaNacimiento, salario), idModificar)) {
-
                 JOptionPane.showMessageDialog(jd_modificar, "Se ha modificado exitosamente.");
             } else {
                 JOptionPane.showMessageDialog(jd_modificar, "Ocurrio un error al modificar.");
@@ -636,7 +635,7 @@ public class PRINCIPAL_PROYECTO extends javax.swing.JFrame {
         tf_nuevoID.setText("");
         tf_nuevoNombre.setText("");
         tf_nuevaFecha.setText("");
-        tf_salario.setText("");
+        tf_nuevoSalario.setText("");
     }//GEN-LAST:event_bt_confirmarMouseClicked
 
     private void bt_personas_buscarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bt_personas_buscarMouseClicked

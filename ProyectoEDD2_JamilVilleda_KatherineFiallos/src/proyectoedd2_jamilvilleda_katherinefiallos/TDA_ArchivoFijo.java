@@ -176,21 +176,26 @@ public class TDA_ArchivoFijo {
         }
     }
     public boolean modify(Personas newPersonas,int id)throws IOException{
-        Index pos=new Index();
+        Index pos;
         pos=arbol.search(id);
         if(pos==null){
             return false;
         }else if(pos.getId() !=newPersonas.getId()){
-            flujo.seek((pos.getRp()-1)*newPersonas.sizeOf()+headerSize);
+            System.out.println("Entro al if");
+            flujo.seek((pos.getRp())*newPersonas.sizeOf());
+            System.out.println("Paso el seek");
             flujo.writeChar(newPersonas.getBorrado());
             flujo.writeInt(newPersonas.getReferencia());
             flujo.writeInt(newPersonas.getId());
+            System.out.println("Paso la mitad");
             flujo.writeUTF(newPersonas.getBirthdate());
             flujo.writeUTF(newPersonas.getName());
             flujo.writeFloat(newPersonas.getSalary());
-           
+            System.out.println("Paso los write");
             arbol.delete(id);
+            System.out.println("Paso el borrado");
             arbol.insert(pos);
+            System.out.println("Llego al insertar");
             return true;
         }else{
             System.out.println("aja3");
