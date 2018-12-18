@@ -448,10 +448,10 @@ public class PRINCIPAL_PROYECTO extends javax.swing.JFrame {
         int ID = Integer.parseInt(tf_ID1.getText());
         String nombre = tf_nombre1.getText();
         String fecha = tf_fecha1.getText();
-        String salario = tf_salario.getText();
+        Float salario = Float.parseFloat(tf_salario.getText());
         
         if (archivo.insert(new Personas(ID, nombre, fecha, salario))) {
-             archivo.escribir();
+             //archivo.escribir();
             JOptionPane.showConfirmDialog(jd_agregar, "Agregado exitosamente");
 
         } else {
@@ -493,14 +493,13 @@ public class PRINCIPAL_PROYECTO extends javax.swing.JFrame {
                 if(line.contains(",")){
                     String[] personas=line.split(",");
                     int id;
-                    String nombre="",fecha="",lugar="",nombre_padre="",nombre_madre="";
+                    Float salary;
+                    String nombre="",fecha="";
                     id=Integer.parseInt(personas[0]);
                     nombre=personas[1];
                     fecha=personas[2];
-                    lugar=personas[3];
-                    nombre_padre=personas[4];
-                    nombre_madre=personas[5];
-                    archivo.insert(new Personas(id,nombre,fecha,lugar,nombre_padre,nombre_madre));
+                    salary=Float.parseFloat(personas[3]);
+                    archivo.insert(new Personas(id,nombre,fecha,salary));
                 }
             }
             JOptionPane.showMessageDialog(jd_agregar, "Archivos Agregados");
