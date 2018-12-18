@@ -40,12 +40,16 @@ public class BTree implements Serializable {
     }
 
     private void insert(Node node, Index value) {
-        int i = node.cantNodos;
+
+        int i = node.cantNodos; //3
+
+       // int i = node.cantNodos;
         
         if (node.isLeaf) {
             while (i >= 1 && value.getId() < node.key[i - 1].getId()) { 
                 node.key[i] = node.key[i - 1];
                 i--;
+<<<<<<< HEAD
             } 
     //Hacemos una verificacion de que es menor
     //Si el valor es 1 que en el arreglo seria 0, y el id de lo que estamos insertando
@@ -54,6 +58,10 @@ public class BTree implements Serializable {
             
             
             node.key[i] = value;
+=======
+            }
+            node.key[i] = value;                    
+>>>>>>> b4ff56cb13798937b65709cd5862f091d3889c5d
             node.cantNodos++;
             
         } else {

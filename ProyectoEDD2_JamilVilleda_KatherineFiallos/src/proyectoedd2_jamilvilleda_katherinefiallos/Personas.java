@@ -20,7 +20,7 @@ public class Personas {
     private char borrado;
     private int referencia;
 
-    public Personas(int id, String name, String birthdate, String place, String name_father, String name_mother, char borrado, int referencia) {
+    public Personas(int id, String name, String birthdate, String place, String name_father, String name_mother) {
         this.id = id;
         this.name = name;
         this.birthdate = birthdate;
