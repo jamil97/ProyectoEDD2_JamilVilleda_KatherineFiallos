@@ -50,6 +50,7 @@ public class PRINCIPAL_PROYECTO extends javax.swing.JFrame {
 
             }
         } catch (Exception e) {
+            //Hola
         }
     }
 
