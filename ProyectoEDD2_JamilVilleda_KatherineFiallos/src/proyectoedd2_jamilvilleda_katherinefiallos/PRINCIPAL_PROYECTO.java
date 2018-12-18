@@ -52,6 +52,10 @@ public class PRINCIPAL_PROYECTO extends javax.swing.JFrame {
         } catch (Exception e) {
             //Hola
         }
+        tf_nombre_buscar.setEditable(false);
+        tf_fecha_buscar.setEditable(false);
+        tf_salario_buscar.setEditable(false);
+        
     }
 
     /**
@@ -91,6 +95,7 @@ public class PRINCIPAL_PROYECTO extends javax.swing.JFrame {
         tf_salario_buscar = new javax.swing.JTextField();
         bt_personas_buscar = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
+        jLabel13 = new javax.swing.JLabel();
         jd_listar = new javax.swing.JDialog();
         jLabel14 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -206,6 +211,13 @@ public class PRINCIPAL_PROYECTO extends javax.swing.JFrame {
         });
 
         jButton2.setText("Buscar otra persona");
+        jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton2MouseClicked(evt);
+            }
+        });
+
+        jLabel13.setText("yyyy/mm/dd");
 
         javax.swing.GroupLayout jd_buscarLayout = new javax.swing.GroupLayout(jd_buscar.getContentPane());
         jd_buscar.getContentPane().setLayout(jd_buscarLayout);
@@ -219,7 +231,8 @@ public class PRINCIPAL_PROYECTO extends javax.swing.JFrame {
                             .addComponent(jLabel5)
                             .addComponent(jLabel6)
                             .addComponent(jLabel11)
-                            .addComponent(jLabel12))
+                            .addComponent(jLabel12)
+                            .addComponent(jLabel13))
                         .addGap(24, 24, 24)
                         .addGroup(jd_buscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(tf_salario_buscar, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -248,7 +261,9 @@ public class PRINCIPAL_PROYECTO extends javax.swing.JFrame {
                 .addGroup(jd_buscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(tf_fecha_buscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel11))
-                .addGap(44, 44, 44)
+                .addGap(6, 6, 6)
+                .addComponent(jLabel13)
+                .addGap(18, 18, 18)
                 .addGroup(jd_buscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel12)
                     .addComponent(tf_salario_buscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -517,14 +532,15 @@ public class PRINCIPAL_PROYECTO extends javax.swing.JFrame {
         int ID = Integer.parseInt(tf_ID1.getText());
         String nombre = tf_nombre1.getText();
         String fecha = tf_fecha1.getText();
-        Float salario = Float.parseFloat(tf_salario.getText());
+        float salario = Float.parseFloat(tf_salario.getText());
         
         if (archivo.insert(new Personas(ID, nombre, fecha, salario))) {
              //archivo.escribir();
-            JOptionPane.showConfirmDialog(jd_agregar, "Agregado exitosamente");
+            JOptionPane.showMessageDialog(jd_agregar, "Agregado exitosamente");
+            //archivo.cargarArbol();
 
         } else {
-            JOptionPane.showConfirmDialog(jd_agregar, "Error");
+            JOptionPane.showMessageDialog(jd_agregar, "Error");
         }
         tf_ID1.setText("");
         tf_nombre1.setText("");
@@ -539,8 +555,8 @@ public class PRINCIPAL_PROYECTO extends javax.swing.JFrame {
     private void bt_cargarListadoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bt_cargarListadoMouseClicked
 
 
-         archivo.listar((DefaultTableModel) this.jt_listar.getModel());
-
+         
+        //archivo.escribir();
         DefaultTableModel modelo=(DefaultTableModel)jt_listar.getModel();
         for (int i = 0; i < jt_listar.getRowCount(); i++) {
             modelo.removeRow(i);
@@ -562,7 +578,7 @@ public class PRINCIPAL_PROYECTO extends javax.swing.JFrame {
                 if(line.contains(",")){
                     String[] personas=line.split(",");
                     int id;
-                    Float salary;
+                    float salary;
                     String nombre="",fecha="";
                     id=Integer.parseInt(personas[0]);
                     nombre=personas[1];
@@ -612,7 +628,7 @@ public class PRINCIPAL_PROYECTO extends javax.swing.JFrame {
         int idNuevo;
         String nuevoNombre;
         String nuevaFechaNacimiento;
-        Float salario;
+        float salario;
         
         idModificar = Integer.parseInt(this.tf_idModificar.getText());
         idNuevo = Integer.parseInt(this.tf_nuevoID.getText());
@@ -654,8 +670,19 @@ public class PRINCIPAL_PROYECTO extends javax.swing.JFrame {
         } catch (Exception e) {
             JOptionPane.showMessageDialog(jd_buscar, "error!");
         }
+        tf_nombre_buscar.setText("");
+        tf_fecha_buscar.setText("");
+        tf_salario_buscar.setText("");
         
     }//GEN-LAST:event_bt_personas_buscarMouseClicked
+
+    private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
+        // TODO add your handling code here:
+        tf_id_buscar.setText("");
+        tf_nombre_buscar.setText("");
+        tf_fecha_buscar.setText("");
+        tf_salario_buscar.setText("");
+    }//GEN-LAST:event_jButton2MouseClicked
 
     /**
      * @param args the command line arguments
@@ -709,6 +736,7 @@ public class PRINCIPAL_PROYECTO extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
