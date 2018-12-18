@@ -158,10 +158,13 @@ public class TDA_ArchivoFijo {
     }
     
     public Personas search(int id)throws IOException{
+        System.out.println("1");
         Index pos=new Index();
         pos=arbol.search(id);
+        System.out.println(pos);
         Personas buscando=new Personas();
         if(pos==null){
+            System.out.println("2");
             return null;
         }else{
             flujo.seek((pos.getRp()-1)*buscando.sizeOf()+headerSize);
@@ -173,6 +176,7 @@ public class TDA_ArchivoFijo {
             buscando.setPlace(flujo.readUTF());
             buscando.setName_father(flujo.readUTF());
             buscando.setName_mother(flujo.readUTF());
+            System.out.println("3");
             return buscando;
         }
     }
