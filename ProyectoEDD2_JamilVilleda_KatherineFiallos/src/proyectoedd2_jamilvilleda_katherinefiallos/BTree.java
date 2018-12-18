@@ -27,12 +27,12 @@ public class BTree implements Serializable {
     public void insert(Index k) {
         Node r = root; 
         if (r.cantNodos == 3) { //Si se llena empieza la jerarquia
-            Node s = new Node();
+            Node s = new Node();//creamos una nueva raiz.
             root = s;  
             s.cantNodos = 0;
             s.isLeaf = false;
-            s.child[0] = r;
-            split(s, 1, r);
+            s.child[0] = r; //Lo que tenia la raiz anterior va a ser hija de la nueva raiz. 
+            split(s, 1, r); //Aqui lo que hace es el hijo predecesor y sucesor
             insert(s, k);
         } else {
             insert(r, k);
@@ -43,10 +43,16 @@ public class BTree implements Serializable {
         int i = node.cantNodos;
         
         if (node.isLeaf) {
-            while (i >= 1 && value.getId() < node.key[i - 1].getId()) {
+            while (i >= 1 && value.getId() < node.key[i - 1].getId()) { 
                 node.key[i] = node.key[i - 1];
                 i--;
-            }
+            } 
+    //Hacemos una verificacion de que es menor
+    //Si el valor es 1 que en el arreglo seria 0, y el id de lo que estamos insertando
+    //es menor que lo que ya estaba antes de predeterminado ya, entonces empezamos a ordenar
+    //las llaves.
+            
+            
             node.key[i] = value;
             node.cantNodos++;
             
