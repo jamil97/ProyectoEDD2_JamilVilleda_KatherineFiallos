@@ -8,8 +8,10 @@ package proyectoedd2_jamilvilleda_katherinefiallos;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.io.RandomAccessFile;
 import java.util.ArrayList;
 import java.util.LinkedList;
@@ -231,6 +233,23 @@ public class TDA_ArchivoFijo {
         } catch (Exception e) {
         }
         return model;
+    }
+    public void escribir(){
+        FileOutputStream fw=null;
+        ObjectOutputStream bw=null;
+        try {
+            fw=new FileOutputStream("Arbol.b");
+            bw=new ObjectOutputStream(fw);
+            bw.writeObject(arbol);
+            bw.flush();
+        } catch (Exception e) {
+        }finally{
+            try {
+                bw.close();
+                fw.close();
+            } catch (Exception e) {
+            }
+        }
     }
     public boolean cargarArbol(){
         FileInputStream inFile;

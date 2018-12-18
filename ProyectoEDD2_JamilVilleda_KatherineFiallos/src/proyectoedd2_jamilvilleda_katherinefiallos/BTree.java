@@ -12,7 +12,7 @@ import java.io.Serializable;
  * @author Jamil
  */
 public class BTree implements Serializable {
-
+    private static final long SerialVersionUID = 666L;
     private Node root;
 
     public BTree() {
@@ -49,7 +49,7 @@ public class BTree implements Serializable {
             while (i >= 1 && value.getId() < node.key[i - 1].getId()) { 
                 node.key[i] = node.key[i - 1];
                 i--;
-<<<<<<< HEAD
+
             } 
     //Hacemos una verificacion de que es menor
     //Si el valor es 1 que en el arreglo seria 0, y el id de lo que estamos insertando
@@ -57,11 +57,7 @@ public class BTree implements Serializable {
     //las llaves.
             
             
-            node.key[i] = value;
-=======
-            }
-            node.key[i] = value;                    
->>>>>>> b4ff56cb13798937b65709cd5862f091d3889c5d
+            node.key[i] = value;                 
             node.cantNodos++;
             
         } else {
