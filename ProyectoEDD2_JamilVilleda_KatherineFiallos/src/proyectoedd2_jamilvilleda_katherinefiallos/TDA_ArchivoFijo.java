@@ -30,8 +30,8 @@ public class TDA_ArchivoFijo {
     private static BTree arbol;
     private ArrayList<Integer>AvailList = new ArrayList();
     
-    public TDA_ArchivoFijo(File File)throws IOException{
-        file=File;
+    public TDA_ArchivoFijo(File file)throws IOException{
+        this.file=file;
         if(file.exists() && !file.isFile()){
             throw new IOException(file.getName() +"No es un archivo");
         }
