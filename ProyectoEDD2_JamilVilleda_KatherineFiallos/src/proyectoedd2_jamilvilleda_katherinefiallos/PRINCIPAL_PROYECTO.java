@@ -446,14 +446,6 @@ public class PRINCIPAL_PROYECTO extends javax.swing.JFrame {
 
     private void bt_confirmarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bt_confirmarMouseClicked
         
-        int idModificar;
-        int nuevoId;
-        String nombre;
-        String fechaNacimiento;
-        String nombrePadre;
-        String nombreMadre;
-        String lugarNacimiento;
-        
         
         
         
