@@ -10,8 +10,10 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import javax.swing.JOptionPane;
+import javax.swing.JTable;
 import javax.swing.JTree;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
 
 /**
  *
@@ -243,10 +245,7 @@ public class PRINCIPAL_PROYECTO extends javax.swing.JFrame {
 
         jt_listar.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null}
+
             },
             new String [] {
                 "ID", "Nombre", "Fecha de Nacimiento", "Lugar de Nacimiento", "Nombre de Padre", "Nombre de Madre"
@@ -268,6 +267,11 @@ public class PRINCIPAL_PROYECTO extends javax.swing.JFrame {
                 bt_cargarListadoMouseClicked(evt);
             }
         });
+        bt_cargarListado.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bt_cargarListadoActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jd_listarLayout = new javax.swing.GroupLayout(jd_listar.getContentPane());
         jd_listar.getContentPane().setLayout(jd_listarLayout);
@@ -284,7 +288,7 @@ public class PRINCIPAL_PROYECTO extends javax.swing.JFrame {
                         .addGap(0, 203, Short.MAX_VALUE)))
                 .addContainerGap())
             .addGroup(jd_listarLayout.createSequentialGroup()
-                .addGap(282, 282, 282)
+                .addContainerGap()
                 .addComponent(bt_cargarListado)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -295,9 +299,9 @@ public class PRINCIPAL_PROYECTO extends javax.swing.JFrame {
                 .addComponent(jLabel14)
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addComponent(bt_cargarListado)
-                .addGap(21, 21, 21))
+                .addContainerGap(31, Short.MAX_VALUE))
         );
 
         jLabel7.setText("Nº de ID a modificar:");
@@ -395,6 +399,11 @@ public class PRINCIPAL_PROYECTO extends javax.swing.JFrame {
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                formWindowClosing(evt);
+            }
+        });
 
         bt_agregar.setText("Agregar");
         bt_agregar.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -533,6 +542,7 @@ public class PRINCIPAL_PROYECTO extends javax.swing.JFrame {
         String nombre_p = tf_nombrepadre1.getText();
         String nombre_m = tf_nombremadre1.getText();
         if (archivo.insert(new Personas(ID, nombre, fecha, lugar, nombre_p, nombre_m))) {
+             archivo.escribir();
             JOptionPane.showConfirmDialog(jd_agregar, "Agregado exitosamente");
 
         } else {
@@ -568,10 +578,9 @@ public class PRINCIPAL_PROYECTO extends javax.swing.JFrame {
 
         try {
             if (archivo.modify(new Personas(idNuevo, nuevoNombre, nuevaFechaNacimiento, nuevoLugarNacimiento, nuevoNombrePadre, nuevoNombreMadre), idModificar)) {
-
+                
                 JOptionPane.showMessageDialog(jd_modificar, "Se ha modificado exitosamente.");
             } else {
-                System.out.println("paso2");
                 JOptionPane.showMessageDialog(jd_modificar, "Ocurrio un error al modificar.");
             }
         } catch (Exception e) {
@@ -591,8 +600,12 @@ public class PRINCIPAL_PROYECTO extends javax.swing.JFrame {
 
     
     private void bt_cargarListadoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bt_cargarListadoMouseClicked
-        
-         archivo.listar((DefaultTableModel) this.jt_listar.getModel());
+        DefaultTableModel modelo=(DefaultTableModel)jt_listar.getModel();
+        for (int i = 0; i < jt_listar.getRowCount(); i++) {
+            modelo.removeRow(i);
+            i-=1;
+        }
+        archivo.listar((DefaultTableModel) this.jt_listar.getModel());
 
         
     }//GEN-LAST:event_bt_cargarListadoMouseClicked
@@ -642,6 +655,15 @@ public class PRINCIPAL_PROYECTO extends javax.swing.JFrame {
         }
         tf_id_eliminar.setText("");
     }//GEN-LAST:event_bt_eliminar_personaMouseClicked
+
+    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
+        // TODO add your handling code here:
+        archivo.escribir();
+    }//GEN-LAST:event_formWindowClosing
+
+    private void bt_cargarListadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_cargarListadoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_bt_cargarListadoActionPerformed
 
     /**
      * @param args the command line arguments
