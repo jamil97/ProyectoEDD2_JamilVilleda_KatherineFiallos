@@ -81,9 +81,7 @@ public class TDA_ArchivoFijo {
                         flujo.writeInt(personas.getId());
                         flujo.writeUTF(personas.getName());
                         flujo.writeUTF(personas.getBirthdate());
-                        flujo.writeUTF(personas.getPlace());
-                        flujo.writeUTF(personas.getName_father());
-                        flujo.writeUTF(personas.getName_mother());
+                        flujo.writeFloat(personas.getSalary());
                         arbol.insert(new Index(personas.getId(),(int)file.length()/personas.sizeOf()));
                         break;
                     }else{
@@ -102,9 +100,7 @@ public class TDA_ArchivoFijo {
                         flujo.writeInt(personas.getId());
                         flujo.writeUTF(personas.getName());
                         flujo.writeUTF(personas.getBirthdate());
-                        flujo.writeUTF(personas.getPlace());
-                        flujo.writeUTF(personas.getName_father());
-                        flujo.writeUTF(personas.getName_mother());
+                        flujo.writeFloat(personas.getSalary());
                         arbol.insert(new Index(personas.getId(),pos));
                         break;
                     }
@@ -174,10 +170,8 @@ public class TDA_ArchivoFijo {
             buscando.setId(flujo.readInt());
             buscando.setName(flujo.readUTF());
             buscando.setBirthdate(flujo.readUTF());
-            buscando.setPlace(flujo.readUTF());
-            buscando.setName_father(flujo.readUTF());
-            buscando.setName_mother(flujo.readUTF());
-            System.out.println("3");
+            buscando.setSalary(flujo.readFloat());
+            
             return buscando;
         }
     }
@@ -193,14 +187,10 @@ public class TDA_ArchivoFijo {
             flujo.writeInt(newPersonas.getId());
             flujo.writeUTF(newPersonas.getBirthdate());
             flujo.writeUTF(newPersonas.getName());
-            flujo.writeUTF(newPersonas.getPlace());
-            flujo.writeUTF(newPersonas.getName_father());
-            flujo.writeUTF(newPersonas.getName_mother());
+            flujo.writeFloat(newPersonas.getSalary());
            
             arbol.delete(id);
-            System.out.println("arbol delete");
             arbol.insert(pos);
-            System.out.println("arbol insert");
             return true;
         }else{
             System.out.println("aja3");
@@ -210,9 +200,7 @@ public class TDA_ArchivoFijo {
             flujo.writeInt(newPersonas.getId());
             flujo.writeUTF(newPersonas.getBirthdate());
             flujo.writeUTF(newPersonas.getName());
-            flujo.writeUTF(newPersonas.getPlace());
-            flujo.writeUTF(newPersonas.getName_father());
-            flujo.writeUTF(newPersonas.getName_mother());
+            flujo.writeFloat(newPersonas.getSalary());
             return true;
         }
     }
@@ -230,13 +218,11 @@ public class TDA_ArchivoFijo {
                 personas.setReferencia(flujo.readInt());
                 personas.setId(flujo.readInt());
                 personas.setName(flujo.readUTF());
-                personas.setPlace(flujo.readUTF());
                 personas.setBirthdate(flujo.readUTF());
-                personas.setName_father(flujo.readUTF());
-                personas.setName_mother(flujo.readUTF());
+                personas.setSalary(flujo.readFloat());
                 if(personas.getBorrado()!='*'){
                     model.addRow(new Object[]{
-                        personas.getId(),personas.getName(),personas.getBirthdate(),personas.getPlace(),personas.getName_father(),personas.getName_mother()});
+                        personas.getId(),personas.getName(),personas.getBirthdate(),personas.getSalary()});
                 }
             }
             

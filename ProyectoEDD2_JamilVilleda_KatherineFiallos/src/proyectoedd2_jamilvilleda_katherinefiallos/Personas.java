@@ -14,25 +14,17 @@ public class Personas {
     private int id;
     private String name;
     private String birthdate;
-    private String place;
-    private String name_father;
-    private String name_mother;
+    private float salary;
     
     private char borrado;
     private int referencia;
 
-    public Personas(int id, String name, String birthdate, String place, String name_father, String name_mother) {
+    public Personas(int id, String name, String birthdate, float salary) {
         this.id = id;
         this.name = name;
         this.birthdate = birthdate;
-        this.place = place;
-        this.name_father = name_father;
-        this.name_mother = name_mother;
-        this.borrado = '-';
-        this.referencia = 0;
+        this.salary = salary;
     }
-    
-    
 
     public Personas() {
     }
@@ -47,10 +39,6 @@ public class Personas {
     }
 
     public String getName() {
-        for (int i =name.length(); i < 40; i++) {
-            name+=" ";
-            
-        }
         return name;
     }
 
@@ -66,28 +54,12 @@ public class Personas {
         this.birthdate = birthdate;
     }
 
-    public String getPlace() {
-        return place;
+    public float getSalary() {
+        return salary;
     }
 
-    public void setPlace(String place) {
-        this.place = place;
-    }
-
-    public String getName_father() {
-        return name_father;
-    }
-
-    public void setName_father(String name_father) {
-        this.name_father = name_father;
-    }
-
-    public String getName_mother() {
-        return name_mother;
-    }
-
-    public void setName_mother(String name_mother) {
-        this.name_mother = name_mother;
+    public void setSalary(float salary) {
+        this.salary = salary;
     }
 
     public char getBorrado() {
@@ -101,6 +73,9 @@ public class Personas {
     public int getReferencia() {
         return referencia;
     }
+    
+
+    
 
     public void setReferencia(int referencia) {
         this.referencia = referencia;
@@ -112,9 +87,11 @@ public class Personas {
 
     @Override
     public String toString() {
-        return "Personas{" + "id=" + id + ", name=" + name + ", birthdate=" + birthdate + ", place=" + place + ", name_father=" + name_father + ", name_mother=" + name_mother + '}';
+        return "Personas{" + "id=" + id + ", name=" + name + ", birthdate=" + birthdate + ", salary=" + salary + '}';
     }
+    
 
+    
     
     
     
