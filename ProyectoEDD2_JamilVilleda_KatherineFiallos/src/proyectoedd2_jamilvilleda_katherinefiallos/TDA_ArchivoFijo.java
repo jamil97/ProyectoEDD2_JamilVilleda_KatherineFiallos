@@ -167,6 +167,7 @@ public class TDA_ArchivoFijo {
             System.out.println("2");
             return null;
         }else{
+           
             flujo.seek((pos.getRp()-1)*buscando.sizeOf()+headerSize);
             buscando.setBorrado(flujo.readChar());
             buscando.setReferencia(flujo.readInt());
