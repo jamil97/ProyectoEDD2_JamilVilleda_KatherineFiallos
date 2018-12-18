@@ -11,6 +11,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.RandomAccessFile;
+import java.util.ArrayList;
 import java.util.LinkedList;
 import javax.swing.table.DefaultTableModel;
 
@@ -27,6 +28,7 @@ public class TDA_ArchivoFijo {
     private static int header;
     private static final int headerSize=Integer.BYTES;
     private static BTree arbol;
+    private ArrayList<Integer>AvailList = new ArrayList();
     
     public TDA_ArchivoFijo(File File)throws IOException{
         file=File;

@@ -40,13 +40,13 @@ public class BTree implements Serializable {
     }
 
     private void insert(Node node, Index value) {
-        int i = node.cantNodos;
+        int i = node.cantNodos; //3
         if (node.isLeaf) {
             while (i >= 1 && value.getId() < node.key[i - 1].getId()) {
                 node.key[i] = node.key[i - 1];
                 i--;
             }
-            node.key[i] = value;
+            node.key[i] = value;                    
             node.cantNodos++;
         } else {
             while (i >= i && value.getId() < node.key[i - 1].getId()) {
