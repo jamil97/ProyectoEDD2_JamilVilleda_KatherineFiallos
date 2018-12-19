@@ -14,7 +14,6 @@ import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
-
 /**
  *
  * @author KATHERINE
@@ -26,39 +25,66 @@ public class PRINCIPAL_PROYECTO extends javax.swing.JFrame {
     /**
      * Creates new form PRINCIPAL_PROYECTO
      */
-    public PRINCIPAL_PROYECTO()  {
+    public PRINCIPAL_PROYECTO() {
         initComponents();
+        
+        //              IMAGENES DE FONDO E ICONOS
+        
         ImageIcon fondoPrincipal = new ImageIcon(getClass().getResource("/Imagenes/rnp.jpg"));
         ImageIcon nave = new ImageIcon(fondoPrincipal.getImage().getScaledInstance(624, 407, Image.SCALE_DEFAULT));
         jl_fondoPrincipal.setIcon(nave);
-        
+
         ImageIcon fondoAgregar = new ImageIcon(getClass().getResource("/Imagenes/white2.jpg"));
         ImageIcon blanco = new ImageIcon(fondoAgregar.getImage().getScaledInstance(454, 484, Image.SCALE_DEFAULT));
         jl_fondoAgregar.setIcon(blanco);
-        
+
         ImageIcon agregarIcon = new ImageIcon(getClass().getResource("/Imagenes/add.png"));
-        ImageIcon add = new ImageIcon(agregarIcon.getImage().getScaledInstance(200,200, Image.SCALE_DEFAULT));
+        ImageIcon add = new ImageIcon(agregarIcon.getImage().getScaledInstance(200, 200, Image.SCALE_DEFAULT));
         jl_addIcon.setIcon(add);
+
+        ImageIcon rojo = new ImageIcon(getClass().getResource("/Imagenes/redbg.jpg"));
+        ImageIcon deletebg = new ImageIcon(rojo.getImage().getScaledInstance(540, 437, Image.SCALE_DEFAULT));
+        jl_eliminarFondo.setIcon(deletebg);
+
+        ImageIcon del = new ImageIcon(getClass().getResource("/Imagenes/Error.png"));
+        ImageIcon deleteIcon = new ImageIcon(del.getImage().getScaledInstance(190, 200, Image.SCALE_DEFAULT));
+        jl_eliminarIcon.setIcon(deleteIcon);
+
+        ImageIcon naranja = new ImageIcon(getClass().getResource("/Imagenes/orange1.jpg"));
+        ImageIcon orange = new ImageIcon(naranja.getImage().getScaledInstance(590, 580, Image.SCALE_DEFAULT));
+        jl_fondoBuscar.setIcon(orange);
         
-     
+        ImageIcon lupa = new ImageIcon(getClass().getResource("/Imagenes/find-icon.png"));
+        ImageIcon findIcon = new ImageIcon(lupa.getImage().getScaledInstance(220, 221, Image.SCALE_DEFAULT));
+        jl_buscarIcon.setIcon(findIcon);
+
         
+        ImageIcon fondo = new ImageIcon(getClass().getResource("/Imagenes/greenbg.png"));
+        ImageIcon fondoModificar = new ImageIcon(fondo.getImage().getScaledInstance(430, 560, Image.SCALE_DEFAULT));
+        jl_fondoModificar.setIcon(fondoModificar);
+        
+        ImageIcon agregar = new ImageIcon(getClass().getResource("/Imagenes/modifyIcon.png"));
+        ImageIcon modificarIcon = new ImageIcon(agregar.getImage().getScaledInstance(230, 220, Image.SCALE_DEFAULT));
+        jl_modificarIcon.setIcon(modificarIcon);
+        
+        ImageIcon list = new ImageIcon(getClass().getResource("/Imagenes/bluebg.jpg"));
+        ImageIcon listarIcon = new ImageIcon(list.getImage().getScaledInstance(690, 500, Image.SCALE_DEFAULT));
+        jl_fondoListar.setIcon(listarIcon);
         
         
         try {
             archivo = new TDA_ArchivoFijo(new File("./ArchivoFijo.dat"));
-            if(archivo.cargarArbol()){
-                
+            if (archivo.cargarArbol()) {
+
             }
 
-            
-            
         } catch (Exception e) {
             //Hola
         }
         tf_nombre_buscar.setEditable(false);
         tf_fecha_buscar.setEditable(false);
         tf_salario_buscar.setEditable(false);
-        
+
     }
 
     /**
@@ -87,6 +113,8 @@ public class PRINCIPAL_PROYECTO extends javax.swing.JFrame {
         jLabel15 = new javax.swing.JLabel();
         tf_id_eliminar = new javax.swing.JTextField();
         bt_eliminar_persona = new javax.swing.JButton();
+        jl_eliminarIcon = new javax.swing.JLabel();
+        jl_eliminarFondo = new javax.swing.JLabel();
         jd_buscar = new javax.swing.JDialog();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
@@ -99,11 +127,14 @@ public class PRINCIPAL_PROYECTO extends javax.swing.JFrame {
         bt_personas_buscar = new javax.swing.JButton();
         bt_buscarOtraPersona = new javax.swing.JButton();
         jLabel13 = new javax.swing.JLabel();
+        jl_buscarIcon = new javax.swing.JLabel();
+        jl_fondoBuscar = new javax.swing.JLabel();
         jd_listar = new javax.swing.JDialog();
         jLabel14 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jt_listar = new javax.swing.JTable();
         bt_cargarListado = new javax.swing.JButton();
+        jl_fondoListar = new javax.swing.JLabel();
         jd_modificar = new javax.swing.JDialog();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
@@ -116,6 +147,8 @@ public class PRINCIPAL_PROYECTO extends javax.swing.JFrame {
         bt_confirmarModificacion = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         tf_nuevoSalario = new javax.swing.JTextField();
+        jl_modificarIcon = new javax.swing.JLabel();
+        jl_fondoModificar = new javax.swing.JLabel();
         jd_manual = new javax.swing.JDialog();
         jLabel18 = new javax.swing.JLabel();
         jLabel19 = new javax.swing.JLabel();
@@ -190,50 +223,39 @@ public class PRINCIPAL_PROYECTO extends javax.swing.JFrame {
         jd_agregar.getContentPane().add(tf_salario, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 360, 280, -1));
         jd_agregar.getContentPane().add(jl_fondoAgregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
-        jLabel15.setText("ID:");
+        jd_eliminar.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        bt_eliminar_persona.setText("ELIMINAR");
+        jLabel15.setText("Id de la persona a eliminar:");
+        jd_eliminar.getContentPane().add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 260, 170, 30));
+        jd_eliminar.getContentPane().add(tf_id_eliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 260, 289, -1));
+
+        bt_eliminar_persona.setText("Eliminar Usuario");
         bt_eliminar_persona.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 bt_eliminar_personaMouseClicked(evt);
             }
         });
+        jd_eliminar.getContentPane().add(bt_eliminar_persona, new org.netbeans.lib.awtextra.AbsoluteConstraints(195, 352, -1, -1));
+        jd_eliminar.getContentPane().add(jl_eliminarIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 10, 190, 200));
+        jd_eliminar.getContentPane().add(jl_eliminarFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 540, 440));
 
-        javax.swing.GroupLayout jd_eliminarLayout = new javax.swing.GroupLayout(jd_eliminar.getContentPane());
-        jd_eliminar.getContentPane().setLayout(jd_eliminarLayout);
-        jd_eliminarLayout.setHorizontalGroup(
-            jd_eliminarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jd_eliminarLayout.createSequentialGroup()
-                .addGroup(jd_eliminarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jd_eliminarLayout.createSequentialGroup()
-                        .addGap(57, 57, 57)
-                        .addComponent(jLabel15)
-                        .addGap(32, 32, 32)
-                        .addComponent(tf_id_eliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 289, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jd_eliminarLayout.createSequentialGroup()
-                        .addGap(197, 197, 197)
-                        .addComponent(bt_eliminar_persona)))
-                .addContainerGap(163, Short.MAX_VALUE))
-        );
-        jd_eliminarLayout.setVerticalGroup(
-            jd_eliminarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jd_eliminarLayout.createSequentialGroup()
-                .addGap(135, 135, 135)
-                .addGroup(jd_eliminarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel15)
-                    .addComponent(tf_id_eliminar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(95, 95, 95)
-                .addComponent(bt_eliminar_persona)
-                .addContainerGap(152, Short.MAX_VALUE))
-        );
+        jd_buscar.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel5.setText("ID:");
+        jd_buscar.getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(63, 265, -1, -1));
 
         jLabel6.setText("Nombre:");
+        jd_buscar.getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(63, 324, -1, -1));
 
         jLabel11.setText("Fecha de nacimiento:");
+        jd_buscar.getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(63, 389, -1, -1));
 
         jLabel12.setText("Salario:");
+        jd_buscar.getContentPane().add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(63, 450, -1, -1));
+        jd_buscar.getContentPane().add(tf_id_buscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 260, 247, -1));
+        jd_buscar.getContentPane().add(tf_nombre_buscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 319, 247, -1));
+        jd_buscar.getContentPane().add(tf_fecha_buscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 379, 247, -1));
+        jd_buscar.getContentPane().add(tf_salario_buscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 445, 247, -1));
 
         bt_personas_buscar.setText("Buscar Personas");
         bt_personas_buscar.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -241,6 +263,7 @@ public class PRINCIPAL_PROYECTO extends javax.swing.JFrame {
                 bt_personas_buscarMouseClicked(evt);
             }
         });
+        jd_buscar.getContentPane().add(bt_personas_buscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(63, 525, -1, -1));
 
         bt_buscarOtraPersona.setText("Buscar otra persona");
         bt_buscarOtraPersona.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -248,66 +271,18 @@ public class PRINCIPAL_PROYECTO extends javax.swing.JFrame {
                 bt_buscarOtraPersonaMouseClicked(evt);
             }
         });
+        jd_buscar.getContentPane().add(bt_buscarOtraPersona, new org.netbeans.lib.awtextra.AbsoluteConstraints(299, 525, -1, -1));
 
         jLabel13.setText("yyyy/mm/dd");
+        jd_buscar.getContentPane().add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(63, 411, -1, -1));
+        jd_buscar.getContentPane().add(jl_buscarIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 10, 220, 220));
+        jd_buscar.getContentPane().add(jl_fondoBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 590, 580));
 
-        javax.swing.GroupLayout jd_buscarLayout = new javax.swing.GroupLayout(jd_buscar.getContentPane());
-        jd_buscar.getContentPane().setLayout(jd_buscarLayout);
-        jd_buscarLayout.setHorizontalGroup(
-            jd_buscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jd_buscarLayout.createSequentialGroup()
-                .addGroup(jd_buscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jd_buscarLayout.createSequentialGroup()
-                        .addGap(81, 81, 81)
-                        .addGroup(jd_buscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel5)
-                            .addComponent(jLabel6)
-                            .addComponent(jLabel11)
-                            .addComponent(jLabel12)
-                            .addComponent(jLabel13))
-                        .addGap(24, 24, 24)
-                        .addGroup(jd_buscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(tf_salario_buscar, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(tf_fecha_buscar, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(tf_nombre_buscar, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(tf_id_buscar, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jd_buscarLayout.createSequentialGroup()
-                        .addGap(109, 109, 109)
-                        .addComponent(bt_personas_buscar)
-                        .addGap(129, 129, 129)
-                        .addComponent(bt_buscarOtraPersona)))
-                .addContainerGap(58, Short.MAX_VALUE))
-        );
-        jd_buscarLayout.setVerticalGroup(
-            jd_buscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jd_buscarLayout.createSequentialGroup()
-                .addGap(64, 64, 64)
-                .addGroup(jd_buscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
-                    .addComponent(tf_id_buscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(33, 33, 33)
-                .addGroup(jd_buscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel6)
-                    .addComponent(tf_nombre_buscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(34, 34, 34)
-                .addGroup(jd_buscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(tf_fecha_buscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel11))
-                .addGap(6, 6, 6)
-                .addComponent(jLabel13)
-                .addGap(18, 18, 18)
-                .addGroup(jd_buscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel12)
-                    .addComponent(tf_salario_buscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(54, 54, 54)
-                .addGroup(jd_buscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(bt_personas_buscar)
-                    .addComponent(bt_buscarOtraPersona))
-                .addContainerGap(58, Short.MAX_VALUE))
-        );
+        jd_listar.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel14.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
         jLabel14.setText("Lista de personas en el sistema");
+        jd_listar.getContentPane().add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(168, 12, -1, -1));
 
         jt_listar.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -327,6 +302,8 @@ public class PRINCIPAL_PROYECTO extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(jt_listar);
 
+        jd_listar.getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(33, 74, 616, 330));
+
         bt_cargarListado.setText("Cargar Listado");
         bt_cargarListado.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -338,44 +315,26 @@ public class PRINCIPAL_PROYECTO extends javax.swing.JFrame {
                 bt_cargarListadoActionPerformed(evt);
             }
         });
+        jd_listar.getContentPane().add(bt_cargarListado, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 422, -1, -1));
+        jd_listar.getContentPane().add(jl_fondoListar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 690, 500));
 
-        javax.swing.GroupLayout jd_listarLayout = new javax.swing.GroupLayout(jd_listar.getContentPane());
-        jd_listar.getContentPane().setLayout(jd_listarLayout);
-        jd_listarLayout.setHorizontalGroup(
-            jd_listarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jd_listarLayout.createSequentialGroup()
-                .addGroup(jd_listarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jd_listarLayout.createSequentialGroup()
-                        .addGap(250, 250, 250)
-                        .addComponent(bt_cargarListado))
-                    .addGroup(jd_listarLayout.createSequentialGroup()
-                        .addGap(33, 33, 33)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 616, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(39, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jd_listarLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jLabel14)
-                .addGap(157, 157, 157))
-        );
-        jd_listarLayout.setVerticalGroup(
-            jd_listarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jd_listarLayout.createSequentialGroup()
-                .addGap(28, 28, 28)
-                .addComponent(jLabel14)
-                .addGap(32, 32, 32)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(bt_cargarListado)
-                .addContainerGap(34, Short.MAX_VALUE))
-        );
+        jd_modificar.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel7.setText("Nº de ID a modificar:");
+        jd_modificar.getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 279, -1, 25));
 
         jLabel8.setText("Nuevo numero de ID: ");
+        jd_modificar.getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 330, -1, -1));
 
         jLabel9.setText("Nombre: ");
+        jd_modificar.getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 373, -1, -1));
 
         jLabel10.setText("Fecha de Nacimiento:");
+        jd_modificar.getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 417, -1, -1));
+        jd_modificar.getContentPane().add(tf_idModificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 278, 216, 25));
+        jd_modificar.getContentPane().add(tf_nuevoID, new org.netbeans.lib.awtextra.AbsoluteConstraints(179, 325, 216, 25));
+        jd_modificar.getContentPane().add(tf_nuevaFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(183, 412, 216, 25));
+        jd_modificar.getContentPane().add(tf_nuevoNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(179, 368, 216, 25));
 
         bt_confirmarModificacion.setText("Confirmar");
         bt_confirmarModificacion.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -383,68 +342,13 @@ public class PRINCIPAL_PROYECTO extends javax.swing.JFrame {
                 bt_confirmarModificacionMouseClicked(evt);
             }
         });
+        jd_modificar.getContentPane().add(bt_confirmarModificacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(151, 515, -1, -1));
 
         jLabel4.setText("Salario");
-
-        javax.swing.GroupLayout jd_modificarLayout = new javax.swing.GroupLayout(jd_modificar.getContentPane());
-        jd_modificar.getContentPane().setLayout(jd_modificarLayout);
-        jd_modificarLayout.setHorizontalGroup(
-            jd_modificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jd_modificarLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jd_modificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jd_modificarLayout.createSequentialGroup()
-                        .addComponent(jLabel7)
-                        .addGap(18, 18, 18)
-                        .addComponent(tf_idModificar, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jd_modificarLayout.createSequentialGroup()
-                        .addGroup(jd_modificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel8)
-                            .addComponent(jLabel9))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jd_modificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(tf_nuevoNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(tf_nuevoID, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jd_modificarLayout.createSequentialGroup()
-                        .addGap(152, 152, 152)
-                        .addComponent(bt_confirmarModificacion))
-                    .addGroup(jd_modificarLayout.createSequentialGroup()
-                        .addGroup(jd_modificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel10)
-                            .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(jd_modificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(tf_nuevoSalario, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(tf_nuevaFecha, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(27, Short.MAX_VALUE))
-        );
-        jd_modificarLayout.setVerticalGroup(
-            jd_modificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jd_modificarLayout.createSequentialGroup()
-                .addContainerGap(225, Short.MAX_VALUE)
-                .addGroup(jd_modificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(tf_idModificar, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(21, 21, 21)
-                .addGroup(jd_modificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel8)
-                    .addComponent(tf_nuevoID, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jd_modificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel9)
-                    .addComponent(tf_nuevoNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(19, 19, 19)
-                .addGroup(jd_modificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel10)
-                    .addComponent(tf_nuevaFecha, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(27, 27, 27)
-                .addGroup(jd_modificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(tf_nuevoSalario, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(34, 34, 34)
-                .addComponent(bt_confirmarModificacion)
-                .addContainerGap())
-        );
+        jd_modificar.getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 464, 54, 25));
+        jd_modificar.getContentPane().add(tf_nuevoSalario, new org.netbeans.lib.awtextra.AbsoluteConstraints(183, 464, 216, 25));
+        jd_modificar.getContentPane().add(jl_modificarIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 20, 230, 220));
+        jd_modificar.getContentPane().add(jl_fondoModificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 430, 560));
 
         jd_manual.setBackground(new java.awt.Color(255, 255, 102));
 
@@ -843,7 +747,7 @@ public class PRINCIPAL_PROYECTO extends javax.swing.JFrame {
         float salario = Float.parseFloat(tf_salario.getText());
         //archivo.cargarArbol();
         if (archivo.insert(new Personas(ID, nombre, fecha, salario))) {
-             //archivo.escribir();
+            //archivo.escribir();
             JOptionPane.showMessageDialog(jd_agregar, "Agregado exitosamente");
             //archivo.escribir();
             //archivo.cargarArbol();
@@ -860,48 +764,43 @@ public class PRINCIPAL_PROYECTO extends javax.swing.JFrame {
     }//GEN-LAST:event_bt_AgregarpersonaMouseClicked
 
 
-    
     private void bt_cargarListadoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bt_cargarListadoMouseClicked
 
-
-         
-        
-        DefaultTableModel modelo=(DefaultTableModel)jt_listar.getModel();
+        DefaultTableModel modelo = (DefaultTableModel) jt_listar.getModel();
         for (int i = 0; i < jt_listar.getRowCount(); i++) {
             modelo.removeRow(i);
-            i-=1;
+            i -= 1;
         }
         //archivo.cargarArbol();
         archivo.listar((DefaultTableModel) this.jt_listar.getModel());
 
 
-        
     }//GEN-LAST:event_bt_cargarListadoMouseClicked
 
     private void bt_cargarArchivosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bt_cargarArchivosMouseClicked
-     
+
         try {
-            FileReader in =new FileReader(new File("personas.txt"));
-            BufferedReader reader=new BufferedReader(in);
+            FileReader in = new FileReader(new File("personas.txt"));
+            BufferedReader reader = new BufferedReader(in);
             String line;
-            while((line=reader.readLine())!=null){
-                if(line.contains(",")){
-                    String[] personas=line.split(",");
+            while ((line = reader.readLine()) != null) {
+                if (line.contains(",")) {
+                    String[] personas = line.split(",");
                     int id;
                     float salary;
-                    String nombre="",fecha="";
-                    id=Integer.parseInt(personas[0]);
-                    nombre=personas[1];
-                    fecha=personas[2];
-                    salary=Float.parseFloat(personas[3]);
-                    archivo.insert(new Personas(id,nombre,fecha,salary));
+                    String nombre = "", fecha = "";
+                    id = Integer.parseInt(personas[0]);
+                    nombre = personas[1];
+                    fecha = personas[2];
+                    salary = Float.parseFloat(personas[3]);
+                    archivo.insert(new Personas(id, nombre, fecha, salary));
                 }
             }
             JOptionPane.showMessageDialog(jd_agregar, "Archivos Agregados");
         } catch (Exception e) {
         }
-        
-        
+
+
     }//GEN-LAST:event_bt_cargarArchivosMouseClicked
 
     private void bt_eliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_eliminarActionPerformed
@@ -910,12 +809,12 @@ public class PRINCIPAL_PROYECTO extends javax.swing.JFrame {
 
     private void bt_eliminar_personaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bt_eliminar_personaMouseClicked
         int id;
-        id=Integer.parseInt(tf_id_eliminar.getText());
+        id = Integer.parseInt(tf_id_eliminar.getText());
         try {
-            if(archivo.delete(id)){
+            if (archivo.delete(id)) {
                 JOptionPane.showMessageDialog(jd_eliminar, "Eliminado");
                 archivo.cargarArbol();
-            }else{
+            } else {
                 JOptionPane.showMessageDialog(jd_eliminar, "Error al eliminar");
             }
         } catch (IOException e) {
@@ -940,17 +839,16 @@ public class PRINCIPAL_PROYECTO extends javax.swing.JFrame {
         String nuevoNombre;
         String nuevaFechaNacimiento;
         float salario;
-        
+
         idModificar = Integer.parseInt(this.tf_idModificar.getText());
         idNuevo = Integer.parseInt(this.tf_nuevoID.getText());
         nuevoNombre = this.tf_nuevoNombre.getText();
         nuevaFechaNacimiento = this.tf_nuevaFecha.getText();
         salario = Float.parseFloat(this.tf_nuevoSalario.getText());
-        
 
         try {
             if (archivo.modify(new Personas(idNuevo, nuevoNombre, nuevaFechaNacimiento, salario), idModificar)) {
-                
+
                 JOptionPane.showMessageDialog(jd_modificar, "Se ha modificado exitosamente.");
             } else {
                 JOptionPane.showMessageDialog(jd_modificar, "Ocurrio un error al modificar.");
@@ -985,7 +883,7 @@ public class PRINCIPAL_PROYECTO extends javax.swing.JFrame {
         tf_nombre_buscar.setText("");
         tf_fecha_buscar.setText("");
         tf_salario_buscar.setText("");
-        
+
     }//GEN-LAST:event_bt_personas_buscarMouseClicked
 
     private void bt_buscarOtraPersonaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bt_buscarOtraPersonaMouseClicked
@@ -1136,12 +1034,19 @@ public class PRINCIPAL_PROYECTO extends javax.swing.JFrame {
     private javax.swing.JDialog jd_modificar;
     private javax.swing.JLabel jl_addIcon;
     private javax.swing.JLabel jl_buscar;
+    private javax.swing.JLabel jl_buscarIcon;
     private javax.swing.JLabel jl_eliminar;
+    private javax.swing.JLabel jl_eliminarFondo;
+    private javax.swing.JLabel jl_eliminarIcon;
     private javax.swing.JLabel jl_fondoAgregar;
+    private javax.swing.JLabel jl_fondoBuscar;
+    private javax.swing.JLabel jl_fondoListar;
+    private javax.swing.JLabel jl_fondoModificar;
     private javax.swing.JLabel jl_fondoPrincipal;
     private javax.swing.JLabel jl_insertar;
     private javax.swing.JLabel jl_listar;
     private javax.swing.JLabel jl_modificar;
+    private javax.swing.JLabel jl_modificarIcon;
     private javax.swing.JTable jt_listar;
     private javax.swing.JDialog manual_buscar;
     private javax.swing.JDialog manual_eliminar;
