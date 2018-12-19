@@ -21,7 +21,7 @@ public class Index implements Serializable{
        this.rp = rp;
    }
    
-   public Index(){
+   Index(){
    
    }
 

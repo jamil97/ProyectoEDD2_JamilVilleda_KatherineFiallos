@@ -12,10 +12,8 @@ import java.io.FileReader;
 import java.io.IOException;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
-import javax.swing.JTable;
-import javax.swing.JTree;
 import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableModel;
+
 
 /**
  *
@@ -46,9 +44,10 @@ public class PRINCIPAL_PROYECTO extends javax.swing.JFrame {
         
         try {
             archivo = new TDA_ArchivoFijo(new File("./ArchivoFijo.dat"));
-            if (archivo.cargarArbol()) {
+            archivo.cargarArbol();
 
-            }
+            
+            
         } catch (Exception e) {
             //Hola
         }
@@ -75,7 +74,7 @@ public class PRINCIPAL_PROYECTO extends javax.swing.JFrame {
         tf_nombre1 = new javax.swing.JTextField();
         bt_Agregarpersona = new javax.swing.JToggleButton();
         tf_fecha1 = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        bt_cargarArchivos = new javax.swing.JButton();
         jl_addIcon = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
         tf_salario = new javax.swing.JTextField();
@@ -94,7 +93,7 @@ public class PRINCIPAL_PROYECTO extends javax.swing.JFrame {
         tf_fecha_buscar = new javax.swing.JTextField();
         tf_salario_buscar = new javax.swing.JTextField();
         bt_personas_buscar = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        bt_buscarOtraPersona = new javax.swing.JButton();
         jLabel13 = new javax.swing.JLabel();
         jd_listar = new javax.swing.JDialog();
         jLabel14 = new javax.swing.JLabel();
@@ -110,7 +109,7 @@ public class PRINCIPAL_PROYECTO extends javax.swing.JFrame {
         tf_nuevoID = new javax.swing.JTextField();
         tf_nuevaFecha = new javax.swing.JTextField();
         tf_nuevoNombre = new javax.swing.JTextField();
-        bt_confirmar = new javax.swing.JButton();
+        bt_confirmarModificacion = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         tf_nuevoSalario = new javax.swing.JTextField();
         jPanel1 = new javax.swing.JPanel();
@@ -144,13 +143,13 @@ public class PRINCIPAL_PROYECTO extends javax.swing.JFrame {
         jd_agregar.getContentPane().add(bt_Agregarpersona, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 440, -1, -1));
         jd_agregar.getContentPane().add(tf_fecha1, new org.netbeans.lib.awtextra.AbsoluteConstraints(172, 312, 278, -1));
 
-        jButton1.setText("Cargar Archivos");
-        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+        bt_cargarArchivos.setText("Cargar Archivos");
+        bt_cargarArchivos.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton1MouseClicked(evt);
+                bt_cargarArchivosMouseClicked(evt);
             }
         });
-        jd_agregar.getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 440, -1, -1));
+        jd_agregar.getContentPane().add(bt_cargarArchivos, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 440, -1, -1));
         jd_agregar.getContentPane().add(jl_addIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 10, 200, 200));
 
         jLabel17.setText("Salario");
@@ -210,10 +209,10 @@ public class PRINCIPAL_PROYECTO extends javax.swing.JFrame {
             }
         });
 
-        jButton2.setText("Buscar otra persona");
-        jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
+        bt_buscarOtraPersona.setText("Buscar otra persona");
+        bt_buscarOtraPersona.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton2MouseClicked(evt);
+                bt_buscarOtraPersonaMouseClicked(evt);
             }
         });
 
@@ -243,7 +242,7 @@ public class PRINCIPAL_PROYECTO extends javax.swing.JFrame {
                         .addGap(109, 109, 109)
                         .addComponent(bt_personas_buscar)
                         .addGap(129, 129, 129)
-                        .addComponent(jButton2)))
+                        .addComponent(bt_buscarOtraPersona)))
                 .addContainerGap(58, Short.MAX_VALUE))
         );
         jd_buscarLayout.setVerticalGroup(
@@ -270,7 +269,7 @@ public class PRINCIPAL_PROYECTO extends javax.swing.JFrame {
                 .addGap(54, 54, 54)
                 .addGroup(jd_buscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(bt_personas_buscar)
-                    .addComponent(jButton2))
+                    .addComponent(bt_buscarOtraPersona))
                 .addContainerGap(58, Short.MAX_VALUE))
         );
 
@@ -345,10 +344,10 @@ public class PRINCIPAL_PROYECTO extends javax.swing.JFrame {
 
         jLabel10.setText("Fecha de Nacimiento:");
 
-        bt_confirmar.setText("Confirmar");
-        bt_confirmar.addMouseListener(new java.awt.event.MouseAdapter() {
+        bt_confirmarModificacion.setText("Confirmar");
+        bt_confirmarModificacion.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                bt_confirmarMouseClicked(evt);
+                bt_confirmarModificacionMouseClicked(evt);
             }
         });
 
@@ -375,7 +374,7 @@ public class PRINCIPAL_PROYECTO extends javax.swing.JFrame {
                             .addComponent(tf_nuevoID, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jd_modificarLayout.createSequentialGroup()
                         .addGap(152, 152, 152)
-                        .addComponent(bt_confirmar))
+                        .addComponent(bt_confirmarModificacion))
                     .addGroup(jd_modificarLayout.createSequentialGroup()
                         .addGroup(jd_modificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel10)
@@ -410,7 +409,7 @@ public class PRINCIPAL_PROYECTO extends javax.swing.JFrame {
                     .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(tf_nuevoSalario, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(34, 34, 34)
-                .addComponent(bt_confirmar)
+                .addComponent(bt_confirmarModificacion)
                 .addContainerGap())
         );
 
@@ -533,10 +532,11 @@ public class PRINCIPAL_PROYECTO extends javax.swing.JFrame {
         String nombre = tf_nombre1.getText();
         String fecha = tf_fecha1.getText();
         float salario = Float.parseFloat(tf_salario.getText());
-        
+        //archivo.cargarArbol();
         if (archivo.insert(new Personas(ID, nombre, fecha, salario))) {
              //archivo.escribir();
             JOptionPane.showMessageDialog(jd_agregar, "Agregado exitosamente");
+            //archivo.escribir();
             //archivo.cargarArbol();
 
         } else {
@@ -556,19 +556,20 @@ public class PRINCIPAL_PROYECTO extends javax.swing.JFrame {
 
 
          
-        //archivo.escribir();
+        
         DefaultTableModel modelo=(DefaultTableModel)jt_listar.getModel();
         for (int i = 0; i < jt_listar.getRowCount(); i++) {
             modelo.removeRow(i);
             i-=1;
         }
+        //archivo.cargarArbol();
         archivo.listar((DefaultTableModel) this.jt_listar.getModel());
 
 
         
     }//GEN-LAST:event_bt_cargarListadoMouseClicked
 
-    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
+    private void bt_cargarArchivosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bt_cargarArchivosMouseClicked
      
         try {
             FileReader in =new FileReader(new File("personas.txt"));
@@ -592,7 +593,7 @@ public class PRINCIPAL_PROYECTO extends javax.swing.JFrame {
         }
         
         
-    }//GEN-LAST:event_jButton1MouseClicked
+    }//GEN-LAST:event_bt_cargarArchivosMouseClicked
 
     private void bt_eliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_eliminarActionPerformed
         // TODO add your handling code here:
@@ -604,6 +605,7 @@ public class PRINCIPAL_PROYECTO extends javax.swing.JFrame {
         try {
             if(archivo.delete(id)){
                 JOptionPane.showMessageDialog(jd_eliminar, "Eliminado");
+               // archivo.escribir();
             }else{
                 JOptionPane.showMessageDialog(jd_eliminar, "Error al eliminar");
             }
@@ -622,7 +624,7 @@ public class PRINCIPAL_PROYECTO extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_bt_cargarListadoActionPerformed
 
-    private void bt_confirmarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bt_confirmarMouseClicked
+    private void bt_confirmarModificacionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bt_confirmarModificacionMouseClicked
 
         int idModificar;
         int idNuevo;
@@ -639,6 +641,7 @@ public class PRINCIPAL_PROYECTO extends javax.swing.JFrame {
 
         try {
             if (archivo.modify(new Personas(idNuevo, nuevoNombre, nuevaFechaNacimiento, salario), idModificar)) {
+                //archivo.escribir();
                 JOptionPane.showMessageDialog(jd_modificar, "Se ha modificado exitosamente.");
             } else {
                 JOptionPane.showMessageDialog(jd_modificar, "Ocurrio un error al modificar.");
@@ -652,7 +655,7 @@ public class PRINCIPAL_PROYECTO extends javax.swing.JFrame {
         tf_nuevoNombre.setText("");
         tf_nuevaFecha.setText("");
         tf_nuevoSalario.setText("");
-    }//GEN-LAST:event_bt_confirmarMouseClicked
+    }//GEN-LAST:event_bt_confirmarModificacionMouseClicked
 
     private void bt_personas_buscarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bt_personas_buscarMouseClicked
         // TODO add your handling code here:
@@ -676,13 +679,13 @@ public class PRINCIPAL_PROYECTO extends javax.swing.JFrame {
         
     }//GEN-LAST:event_bt_personas_buscarMouseClicked
 
-    private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
+    private void bt_buscarOtraPersonaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bt_buscarOtraPersonaMouseClicked
         // TODO add your handling code here:
         tf_id_buscar.setText("");
         tf_nombre_buscar.setText("");
         tf_fecha_buscar.setText("");
         tf_salario_buscar.setText("");
-    }//GEN-LAST:event_jButton2MouseClicked
+    }//GEN-LAST:event_bt_buscarOtraPersonaMouseClicked
 
     /**
      * @param args the command line arguments
@@ -723,15 +726,15 @@ public class PRINCIPAL_PROYECTO extends javax.swing.JFrame {
     private javax.swing.JToggleButton bt_Agregarpersona;
     private javax.swing.JToggleButton bt_agregar;
     private javax.swing.JToggleButton bt_buscar;
+    private javax.swing.JButton bt_buscarOtraPersona;
+    private javax.swing.JButton bt_cargarArchivos;
     private javax.swing.JButton bt_cargarListado;
-    private javax.swing.JButton bt_confirmar;
+    private javax.swing.JButton bt_confirmarModificacion;
     private javax.swing.JToggleButton bt_eliminar;
     private javax.swing.JButton bt_eliminar_persona;
     private javax.swing.JToggleButton bt_listar;
     private javax.swing.JToggleButton bt_modificar;
     private javax.swing.JButton bt_personas_buscar;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;

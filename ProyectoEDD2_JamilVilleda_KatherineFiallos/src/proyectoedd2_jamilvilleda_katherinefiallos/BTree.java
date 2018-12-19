@@ -12,11 +12,11 @@ import java.io.Serializable;
  * @author Jamil
  */
 public class BTree implements Serializable {
-    private static final long SerialVersionUID = 666L;
+    
     private Node root;
 
     public BTree() {
-
+        
         root = new Node();
         root.isLeaf = true;
         root.cantNodos = 0;
@@ -68,7 +68,7 @@ public class BTree implements Serializable {
               node.cantNodos++;*/
 
         } else {
-            while (i >= i && value.getId() < node.key[i - 1].getId()) {
+            while (i >= 1 && value.getId() < node.key[i - 1].getId()) {
             i--;
         }
 

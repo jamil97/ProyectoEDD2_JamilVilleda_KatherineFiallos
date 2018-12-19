@@ -15,7 +15,6 @@ public class Personas {
     private String name;
     private String birthdate;
     private float salary;
-    
     private char borrado;
     private int referencia;
 
@@ -24,9 +23,12 @@ public class Personas {
         this.name = name;
         this.birthdate = birthdate;
         this.salary = salary;
+        this.borrado = '-';
+        this.referencia = 0;
     }
 
-    public Personas() {
+    Personas() {
+        
     }
     
 
@@ -39,6 +41,10 @@ public class Personas {
     }
 
     public String getName() {
+        for (int i = name.length(); i < 40; i++) {
+            name += " ";
+        }
+        
         return name;
     }
 
@@ -74,9 +80,6 @@ public class Personas {
         return referencia;
     }
     
-
-    
-
     public void setReferencia(int referencia) {
         this.referencia = referencia;
     }
@@ -87,7 +90,7 @@ public class Personas {
 
     @Override
     public String toString() {
-        return "Personas{" + "id=" + id + ", name=" + name + ", birthdate=" + birthdate + ", salary=" + salary + '}';
+        return "Personas{" + "id=" + id + ", name=" + name + ", birthday =" + birthdate + '}';
     }
     
 
