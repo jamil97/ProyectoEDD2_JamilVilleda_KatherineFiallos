@@ -155,25 +155,21 @@ public class TDA_ArchivoFijo {
     }
 
     public Personas search(int id) throws IOException {
-        System.out.println("1");
         Index pos = new Index();
+        
         pos = arbol.search(id);
-        System.out.println(pos);
-        Personas buscando = new Personas();
+        Personas buscado = new Personas();
         if (pos == null) {
-            System.out.println("2");
             return null;
         } else {
-
-            flujo.seek((pos.getRp() - 1) * buscando.sizeOf() + headerSize);
-            buscando.setBorrado(flujo.readChar());
-            buscando.setReferencia(flujo.readInt());
-            buscando.setId(flujo.readInt());
-            buscando.setName(flujo.readUTF());
-            buscando.setBirthdate(flujo.readUTF());
-            buscando.setSalary(flujo.readFloat());
-
-            return buscando;
+            flujo.seek((pos.getRp()- 1) * buscado.sizeOf() + headerSize);
+            buscado.setBorrado(flujo.readChar());
+            buscado.setReferencia(flujo.readInt());
+            buscado.setId(flujo.readInt());
+            buscado.setName(flujo.readUTF());
+            buscado.setBirthdate(flujo.readUTF());
+            buscado.setSalary(flujo.readFloat());
+            return buscado;
         }
     }
 
@@ -231,6 +227,8 @@ public class TDA_ArchivoFijo {
                     model.addRow(new Object[]{
                         personas.getId(), personas.getName(), personas.getBirthdate(), personas.getSalary()});
                 }
+                System.out.println(personas.getId());
+                System.out.println("-----------");
             }
         } catch (Exception e) {
         }

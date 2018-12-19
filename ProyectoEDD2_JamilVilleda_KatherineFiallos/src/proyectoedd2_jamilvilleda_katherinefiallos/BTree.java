@@ -12,7 +12,7 @@ import java.io.Serializable;
  * @author Jamil
  */
 public class BTree implements Serializable {
-    
+    private static final long SerialVersionUID = 666L;
     private Node root;
 
     public BTree() {

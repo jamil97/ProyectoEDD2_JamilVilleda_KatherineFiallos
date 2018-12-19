@@ -40,11 +40,15 @@ public class PRINCIPAL_PROYECTO extends javax.swing.JFrame {
         ImageIcon add = new ImageIcon(agregarIcon.getImage().getScaledInstance(200,200, Image.SCALE_DEFAULT));
         jl_addIcon.setIcon(add);
         
+     
+        
         
         
         try {
             archivo = new TDA_ArchivoFijo(new File("./ArchivoFijo.dat"));
-            archivo.cargarArbol();
+            if(archivo.cargarArbol()){
+                
+            }
 
             
             
@@ -112,6 +116,34 @@ public class PRINCIPAL_PROYECTO extends javax.swing.JFrame {
         bt_confirmarModificacion = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         tf_nuevoSalario = new javax.swing.JTextField();
+        jd_manual = new javax.swing.JDialog();
+        jLabel18 = new javax.swing.JLabel();
+        jLabel19 = new javax.swing.JLabel();
+        bt_insertar_manual = new javax.swing.JButton();
+        bt_eliminar_manual = new javax.swing.JButton();
+        bt_modificar_manual = new javax.swing.JButton();
+        bt_buscar_manual = new javax.swing.JButton();
+        bt_manual_listar = new javax.swing.JButton();
+        manual_insertar = new javax.swing.JDialog();
+        jLabel20 = new javax.swing.JLabel();
+        jLabel21 = new javax.swing.JLabel();
+        jl_insertar = new javax.swing.JLabel();
+        manual_eliminar = new javax.swing.JDialog();
+        jLabel22 = new javax.swing.JLabel();
+        jl_eliminar = new javax.swing.JLabel();
+        jLabel23 = new javax.swing.JLabel();
+        manual_modificar = new javax.swing.JDialog();
+        jLabel24 = new javax.swing.JLabel();
+        jLabel25 = new javax.swing.JLabel();
+        jLabel26 = new javax.swing.JLabel();
+        jl_modificar = new javax.swing.JLabel();
+        manual_listar = new javax.swing.JDialog();
+        jLabel27 = new javax.swing.JLabel();
+        jl_listar = new javax.swing.JLabel();
+        manual_buscar = new javax.swing.JDialog();
+        jLabel28 = new javax.swing.JLabel();
+        jLabel29 = new javax.swing.JLabel();
+        jl_buscar = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         bt_agregar = new javax.swing.JToggleButton();
         bt_modificar = new javax.swing.JToggleButton();
@@ -119,6 +151,7 @@ public class PRINCIPAL_PROYECTO extends javax.swing.JFrame {
         bt_buscar = new javax.swing.JToggleButton();
         bt_listar = new javax.swing.JToggleButton();
         jLabel16 = new javax.swing.JLabel();
+        bt_manual = new javax.swing.JButton();
         jl_fondoPrincipal = new javax.swing.JLabel();
 
         jd_agregar.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -413,6 +446,274 @@ public class PRINCIPAL_PROYECTO extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
+        jd_manual.setBackground(new java.awt.Color(255, 255, 102));
+
+        jLabel18.setText("MANUAL DE USUARIO");
+
+        jLabel19.setText("Aprende a usar nuestro programa");
+
+        bt_insertar_manual.setText("Insertar");
+        bt_insertar_manual.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                bt_insertar_manualMouseClicked(evt);
+            }
+        });
+
+        bt_eliminar_manual.setText("Eliminar");
+        bt_eliminar_manual.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                bt_eliminar_manualMouseClicked(evt);
+            }
+        });
+
+        bt_modificar_manual.setText("Modificar");
+        bt_modificar_manual.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                bt_modificar_manualMouseClicked(evt);
+            }
+        });
+
+        bt_buscar_manual.setText("Buscar");
+        bt_buscar_manual.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                bt_buscar_manualMouseClicked(evt);
+            }
+        });
+
+        bt_manual_listar.setText("Listar");
+        bt_manual_listar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                bt_manual_listarMouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jd_manualLayout = new javax.swing.GroupLayout(jd_manual.getContentPane());
+        jd_manual.getContentPane().setLayout(jd_manualLayout);
+        jd_manualLayout.setHorizontalGroup(
+            jd_manualLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jd_manualLayout.createSequentialGroup()
+                .addGroup(jd_manualLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jd_manualLayout.createSequentialGroup()
+                        .addGap(156, 156, 156)
+                        .addComponent(bt_insertar_manual))
+                    .addGroup(jd_manualLayout.createSequentialGroup()
+                        .addGap(75, 75, 75)
+                        .addComponent(bt_buscar_manual)))
+                .addGroup(jd_manualLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jd_manualLayout.createSequentialGroup()
+                        .addGap(100, 100, 100)
+                        .addComponent(bt_eliminar_manual)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jd_manualLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 23, Short.MAX_VALUE)
+                        .addComponent(bt_manual_listar)
+                        .addGap(89, 89, 89)
+                        .addComponent(bt_modificar_manual)
+                        .addGap(61, 61, 61))))
+            .addGroup(jd_manualLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addGroup(jd_manualLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jd_manualLayout.createSequentialGroup()
+                        .addComponent(jLabel19)
+                        .addGap(156, 156, 156))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jd_manualLayout.createSequentialGroup()
+                        .addComponent(jLabel18)
+                        .addGap(193, 193, 193))))
+        );
+        jd_manualLayout.setVerticalGroup(
+            jd_manualLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jd_manualLayout.createSequentialGroup()
+                .addGap(67, 67, 67)
+                .addComponent(jLabel18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel19)
+                .addGap(90, 90, 90)
+                .addGroup(jd_manualLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(bt_eliminar_manual)
+                    .addComponent(bt_insertar_manual))
+                .addGap(61, 61, 61)
+                .addGroup(jd_manualLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(bt_buscar_manual)
+                    .addComponent(bt_modificar_manual)
+                    .addComponent(bt_manual_listar))
+                .addContainerGap(61, Short.MAX_VALUE))
+        );
+
+        jLabel20.setText("1. Ingresa los datos correspondientes en cada campo, cargalo a la lista.");
+
+        jLabel21.setText("2. Carga los archivos de empleados previos");
+
+        jl_insertar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/insertar.png"))); // NOI18N
+
+        javax.swing.GroupLayout manual_insertarLayout = new javax.swing.GroupLayout(manual_insertar.getContentPane());
+        manual_insertar.getContentPane().setLayout(manual_insertarLayout);
+        manual_insertarLayout.setHorizontalGroup(
+            manual_insertarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(manual_insertarLayout.createSequentialGroup()
+                .addGroup(manual_insertarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(manual_insertarLayout.createSequentialGroup()
+                        .addGap(32, 32, 32)
+                        .addComponent(jLabel20))
+                    .addGroup(manual_insertarLayout.createSequentialGroup()
+                        .addGap(143, 143, 143)
+                        .addComponent(jLabel21))
+                    .addGroup(manual_insertarLayout.createSequentialGroup()
+                        .addGap(52, 52, 52)
+                        .addComponent(jl_insertar)))
+                .addContainerGap(31, Short.MAX_VALUE))
+        );
+        manual_insertarLayout.setVerticalGroup(
+            manual_insertarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(manual_insertarLayout.createSequentialGroup()
+                .addGap(42, 42, 42)
+                .addComponent(jLabel20)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel21)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jl_insertar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(9, 9, 9))
+        );
+
+        jLabel22.setText("1. Ingresa el ID del empleado que deseas eliminar");
+
+        jl_eliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/borrar.png"))); // NOI18N
+
+        jLabel23.setText("2. presiona el boton de eliminar");
+
+        javax.swing.GroupLayout manual_eliminarLayout = new javax.swing.GroupLayout(manual_eliminar.getContentPane());
+        manual_eliminar.getContentPane().setLayout(manual_eliminarLayout);
+        manual_eliminarLayout.setHorizontalGroup(
+            manual_eliminarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(manual_eliminarLayout.createSequentialGroup()
+                .addGroup(manual_eliminarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(manual_eliminarLayout.createSequentialGroup()
+                        .addGap(59, 59, 59)
+                        .addComponent(jl_eliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 546, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(manual_eliminarLayout.createSequentialGroup()
+                        .addGap(208, 208, 208)
+                        .addComponent(jLabel23)))
+                .addContainerGap(61, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, manual_eliminarLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jLabel22, javax.swing.GroupLayout.PREFERRED_SIZE, 395, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(163, 163, 163))
+        );
+        manual_eliminarLayout.setVerticalGroup(
+            manual_eliminarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(manual_eliminarLayout.createSequentialGroup()
+                .addGap(42, 42, 42)
+                .addComponent(jLabel22)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel23)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jl_eliminar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(26, 26, 26))
+        );
+
+        jLabel24.setText("1. Ingresa el ID del empleado que desea modificar");
+
+        jLabel25.setText("2. Ingresa los nuevos datos del empleado");
+
+        jLabel26.setText("3. Presiona el boton para modificar");
+
+        jl_modificar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/modificar.png"))); // NOI18N
+
+        javax.swing.GroupLayout manual_modificarLayout = new javax.swing.GroupLayout(manual_modificar.getContentPane());
+        manual_modificar.getContentPane().setLayout(manual_modificarLayout);
+        manual_modificarLayout.setHorizontalGroup(
+            manual_modificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(manual_modificarLayout.createSequentialGroup()
+                .addGroup(manual_modificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(manual_modificarLayout.createSequentialGroup()
+                        .addGap(48, 48, 48)
+                        .addGroup(manual_modificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel24, javax.swing.GroupLayout.PREFERRED_SIZE, 392, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jl_modificar, javax.swing.GroupLayout.PREFERRED_SIZE, 379, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(manual_modificarLayout.createSequentialGroup()
+                        .addGap(98, 98, 98)
+                        .addGroup(manual_modificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(manual_modificarLayout.createSequentialGroup()
+                                .addGap(10, 10, 10)
+                                .addComponent(jLabel26))
+                            .addComponent(jLabel25))))
+                .addGap(64, 64, 64))
+        );
+        manual_modificarLayout.setVerticalGroup(
+            manual_modificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(manual_modificarLayout.createSequentialGroup()
+                .addGap(53, 53, 53)
+                .addComponent(jLabel24)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel25)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel26)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jl_modificar, javax.swing.GroupLayout.PREFERRED_SIZE, 535, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
+        jLabel27.setText("1. Presiona el boton para refrecar o cargar la lista");
+
+        jl_listar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/listar.png"))); // NOI18N
+
+        javax.swing.GroupLayout manual_listarLayout = new javax.swing.GroupLayout(manual_listar.getContentPane());
+        manual_listar.getContentPane().setLayout(manual_listarLayout);
+        manual_listarLayout.setHorizontalGroup(
+            manual_listarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(manual_listarLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jl_listar, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                .addContainerGap())
+            .addGroup(manual_listarLayout.createSequentialGroup()
+                .addGap(171, 171, 171)
+                .addComponent(jLabel27)
+                .addContainerGap(196, Short.MAX_VALUE))
+        );
+        manual_listarLayout.setVerticalGroup(
+            manual_listarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(manual_listarLayout.createSequentialGroup()
+                .addGap(33, 33, 33)
+                .addComponent(jLabel27)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jl_listar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(23, 23, 23))
+        );
+
+        jLabel28.setText("1. Ingresa el ID del empleado que deseas buscar");
+
+        jLabel29.setText("2. Presiona el boton para buscarlo");
+
+        jl_buscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/buscar.png"))); // NOI18N
+
+        javax.swing.GroupLayout manual_buscarLayout = new javax.swing.GroupLayout(manual_buscar.getContentPane());
+        manual_buscar.getContentPane().setLayout(manual_buscarLayout);
+        manual_buscarLayout.setHorizontalGroup(
+            manual_buscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, manual_buscarLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jLabel28)
+                .addGap(87, 87, 87))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, manual_buscarLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel29)
+                .addGap(147, 147, 147))
+            .addGroup(manual_buscarLayout.createSequentialGroup()
+                .addGap(93, 93, 93)
+                .addComponent(jl_buscar, javax.swing.GroupLayout.PREFERRED_SIZE, 378, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(40, Short.MAX_VALUE))
+        );
+        manual_buscarLayout.setVerticalGroup(
+            manual_buscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(manual_buscarLayout.createSequentialGroup()
+                .addGap(45, 45, 45)
+                .addComponent(jLabel28)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel29)
+                .addGap(18, 18, 18)
+                .addComponent(jl_buscar, javax.swing.GroupLayout.PREFERRED_SIZE, 542, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(88, Short.MAX_VALUE))
+        );
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowClosing(java.awt.event.WindowEvent evt) {
@@ -470,6 +771,14 @@ public class PRINCIPAL_PROYECTO extends javax.swing.JFrame {
         jLabel16.setFont(new java.awt.Font("Lucida Grande", 1, 24)); // NOI18N
         jLabel16.setText("Registro Nacional de las Personas");
         jPanel1.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 20, -1, -1));
+
+        bt_manual.setText("Manual de usuario");
+        bt_manual.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                bt_manualMouseClicked(evt);
+            }
+        });
+        jPanel1.add(bt_manual, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, -1, -1));
         jPanel1.add(jl_fondoPrincipal, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 624, 410));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -605,7 +914,7 @@ public class PRINCIPAL_PROYECTO extends javax.swing.JFrame {
         try {
             if(archivo.delete(id)){
                 JOptionPane.showMessageDialog(jd_eliminar, "Eliminado");
-               // archivo.escribir();
+                archivo.cargarArbol();
             }else{
                 JOptionPane.showMessageDialog(jd_eliminar, "Error al eliminar");
             }
@@ -641,7 +950,7 @@ public class PRINCIPAL_PROYECTO extends javax.swing.JFrame {
 
         try {
             if (archivo.modify(new Personas(idNuevo, nuevoNombre, nuevaFechaNacimiento, salario), idModificar)) {
-                //archivo.escribir();
+                
                 JOptionPane.showMessageDialog(jd_modificar, "Se ha modificado exitosamente.");
             } else {
                 JOptionPane.showMessageDialog(jd_modificar, "Ocurrio un error al modificar.");
@@ -659,19 +968,19 @@ public class PRINCIPAL_PROYECTO extends javax.swing.JFrame {
 
     private void bt_personas_buscarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bt_personas_buscarMouseClicked
         // TODO add your handling code here:
-        int IDbuscar;
-        IDbuscar=Integer.parseInt(tf_id_buscar.getText());
+        int idBuscar;
+        idBuscar = Integer.parseInt(this.tf_id_buscar.getText());
         try {
-            if(archivo.search(IDbuscar)!=null){
-                Personas per=archivo.search(IDbuscar);
-                tf_nombre_buscar.setText(per.getName());
-                tf_fecha_buscar.setText(per.getBirthdate());
-                tf_salario_buscar.setText(per.getSalary()+"");
-            }else{
-                JOptionPane.showMessageDialog(jd_buscar, "No se encontro esa persona");
+            if (archivo.search(idBuscar) != null) {
+                Personas neo = archivo.search(idBuscar);
+                this.tf_nombre_buscar.setText(neo.getName());
+                this.tf_fecha_buscar.setText(neo.getBirthdate());
+                this.tf_salario_buscar.setText(neo.getSalary() + "");
+            } else {
+                JOptionPane.showMessageDialog(jd_buscar, "Error!");
             }
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(jd_buscar, "error!");
+            JOptionPane.showMessageDialog(jd_buscar, "Error!");
         }
         tf_nombre_buscar.setText("");
         tf_fecha_buscar.setText("");
@@ -686,6 +995,53 @@ public class PRINCIPAL_PROYECTO extends javax.swing.JFrame {
         tf_fecha_buscar.setText("");
         tf_salario_buscar.setText("");
     }//GEN-LAST:event_bt_buscarOtraPersonaMouseClicked
+
+    private void bt_manualMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bt_manualMouseClicked
+        jd_manual.setModal(true);
+        jd_manual.pack();
+        jd_manual.setLocationRelativeTo(this);
+        jd_manual.setVisible(true);
+    }//GEN-LAST:event_bt_manualMouseClicked
+
+    private void bt_insertar_manualMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bt_insertar_manualMouseClicked
+        // TODO add your handling code here:
+        manual_insertar.setModal(true);
+        manual_insertar.pack();
+        manual_insertar.setLocationRelativeTo(this);
+        manual_insertar.setVisible(true);
+    }//GEN-LAST:event_bt_insertar_manualMouseClicked
+
+    private void bt_eliminar_manualMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bt_eliminar_manualMouseClicked
+        // TODO add your handling code here:
+        manual_eliminar.setModal(true);
+        manual_eliminar.pack();
+        manual_eliminar.setLocationRelativeTo(this);
+        manual_eliminar.setVisible(true);
+    }//GEN-LAST:event_bt_eliminar_manualMouseClicked
+
+    private void bt_buscar_manualMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bt_buscar_manualMouseClicked
+        // TODO add your handling code here:
+        manual_buscar.setModal(true);
+        manual_buscar.pack();
+        manual_buscar.setLocationRelativeTo(this);
+        manual_buscar.setVisible(true);
+    }//GEN-LAST:event_bt_buscar_manualMouseClicked
+
+    private void bt_manual_listarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bt_manual_listarMouseClicked
+        // TODO add your handling code here:
+        manual_listar.setModal(true);
+        manual_listar.pack();
+        manual_listar.setLocationRelativeTo(this);
+        manual_listar.setVisible(true);
+    }//GEN-LAST:event_bt_manual_listarMouseClicked
+
+    private void bt_modificar_manualMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bt_modificar_manualMouseClicked
+        // TODO add your handling code here:
+        manual_modificar.setModal(true);
+        manual_modificar.pack();
+        manual_modificar.setLocationRelativeTo(this);
+        manual_modificar.setVisible(true);
+    }//GEN-LAST:event_bt_modificar_manualMouseClicked
 
     /**
      * @param args the command line arguments
@@ -727,13 +1083,19 @@ public class PRINCIPAL_PROYECTO extends javax.swing.JFrame {
     private javax.swing.JToggleButton bt_agregar;
     private javax.swing.JToggleButton bt_buscar;
     private javax.swing.JButton bt_buscarOtraPersona;
+    private javax.swing.JButton bt_buscar_manual;
     private javax.swing.JButton bt_cargarArchivos;
     private javax.swing.JButton bt_cargarListado;
     private javax.swing.JButton bt_confirmarModificacion;
     private javax.swing.JToggleButton bt_eliminar;
+    private javax.swing.JButton bt_eliminar_manual;
     private javax.swing.JButton bt_eliminar_persona;
+    private javax.swing.JButton bt_insertar_manual;
     private javax.swing.JToggleButton bt_listar;
+    private javax.swing.JButton bt_manual;
+    private javax.swing.JButton bt_manual_listar;
     private javax.swing.JToggleButton bt_modificar;
+    private javax.swing.JButton bt_modificar_manual;
     private javax.swing.JButton bt_personas_buscar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -744,7 +1106,19 @@ public class PRINCIPAL_PROYECTO extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel23;
+    private javax.swing.JLabel jLabel24;
+    private javax.swing.JLabel jLabel25;
+    private javax.swing.JLabel jLabel26;
+    private javax.swing.JLabel jLabel27;
+    private javax.swing.JLabel jLabel28;
+    private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -758,11 +1132,22 @@ public class PRINCIPAL_PROYECTO extends javax.swing.JFrame {
     private javax.swing.JDialog jd_buscar;
     private javax.swing.JDialog jd_eliminar;
     private javax.swing.JDialog jd_listar;
+    private javax.swing.JDialog jd_manual;
     private javax.swing.JDialog jd_modificar;
     private javax.swing.JLabel jl_addIcon;
+    private javax.swing.JLabel jl_buscar;
+    private javax.swing.JLabel jl_eliminar;
     private javax.swing.JLabel jl_fondoAgregar;
     private javax.swing.JLabel jl_fondoPrincipal;
+    private javax.swing.JLabel jl_insertar;
+    private javax.swing.JLabel jl_listar;
+    private javax.swing.JLabel jl_modificar;
     private javax.swing.JTable jt_listar;
+    private javax.swing.JDialog manual_buscar;
+    private javax.swing.JDialog manual_eliminar;
+    private javax.swing.JDialog manual_insertar;
+    private javax.swing.JDialog manual_listar;
+    private javax.swing.JDialog manual_modificar;
     private javax.swing.JTextField tf_ID1;
     private javax.swing.JTextField tf_fecha1;
     private javax.swing.JTextField tf_fecha_buscar;
